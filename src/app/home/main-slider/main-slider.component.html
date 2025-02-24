@@ -1,0 +1,11 @@
+<div class="relative">
+    <div class="slider overflow-x-hidden">
+        <div class="slider" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+            <ng-container class="" *ngFor="let item of sliderData; let i=index">
+                <a [routerLink]="item.path" class="slider-item">
+                    <img [src]="item.image" alt="slider image">
+                </a>
+            </ng-container>
+        </div>
+    </div>
+</div>

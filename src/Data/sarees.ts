@@ -1,71 +1,71 @@
-export const sareesData=[{
-    title: ' Sillk Cotton Saree',
+export const  sareesData=[{
+    name: 'Maheshwari Saree',
     price: 1500,
-    brand: 'Sillk',
-    description: 'A beautiful saree with soft cotton fabric.',
+    fabric: 'Sillk',
+    description: 'A beautiful Maheshwari Saree with soft cotton fabric.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 {
-    title: 'Saree ',
+    name: 'Maheshwari Saree ',
     price: 1200,
-    brand: 'Sillk',
-    description: 'A saree with a floral pattern.',
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
 ]

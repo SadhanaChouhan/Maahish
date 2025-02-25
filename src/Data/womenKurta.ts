@@ -1,62 +1,62 @@
 export const womenKurtaData = [
     {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     },
     {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     },
     {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     }, {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     },
     {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     },
     {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     }, {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     },
     {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     },
     {
-        title: 'Rose',
+        name: 'Rose',
         price: 1500,
-        brand: 'Maheshwari',
+        fabric: 'Maheshwari',
         color: 'Red',
         imageUrl: './assets/kurta.jpg'
     }

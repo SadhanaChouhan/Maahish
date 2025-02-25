@@ -15,8 +15,8 @@ export class HomeComponent {
   womenKurta:any
 
   ngOnInit() {
-    this.sarees=sareesData.slice(0,8);
-    this.scarfs=scarfsDatta.slice(0,8);
-    this.womenKurta=womenKurtaData.slice(0,8);
+    this.sarees=sareesData;
+    this.scarfs=scarfsDatta;
+    this.womenKurta=womenKurtaData;
   }
 }

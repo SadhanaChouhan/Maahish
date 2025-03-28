@@ -68,4 +68,48 @@ export const  sareesData=[{
     description: 'A Maheshwari Saree with a floral pattern.',
     imageUrl: './assets/model.jpg'
 },
+
+{
+    name: 'Maheshwari Saree ',
+    price: 1200,
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
+    imageUrl: './assets/model.jpg'
+},
+{
+    name: 'Maheshwari Saree ',
+    price: 1200,
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
+    imageUrl: './assets/model.jpg'
+},
+{
+    name: 'Maheshwari Saree ',
+    price: 1200,
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
+    imageUrl: './assets/model.jpg'
+}
+,
+{
+    name: 'Maheshwari Saree ',
+    price: 1200,
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
+    imageUrl: './assets/model.jpg'
+},
+{
+    name: 'Maheshwari Saree ',
+    price: 1200,
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
+    imageUrl: './assets/model.jpg'
+},
+{
+    name: 'Maheshwari Saree ',
+    price: 1200,
+    fabric: 'Sillk',
+    description: 'A Maheshwari Saree with a floral pattern.',
+    imageUrl: './assets/model.jpg'
+},
 ]

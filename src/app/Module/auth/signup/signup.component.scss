@@ -1,0 +1,42 @@
+.container{
+    overflow: hidden;
+    padding: 1rem;
+    text-align: center;
+    height: 600px;
+    width: 500px;
+    background-color: #f5d8ba;
+    
+}
+p{
+    color:  rgb(36, 36, 100);
+    margin: 1px;
+    cursor: pointer;
+}
+
+
+.bt{
+    margin: 10px;
+ margin-bottom: 40px;
+   align-items: center;
+    background-color: #794d1d;
+    color: rgb(244, 240, 240);
+    
+    cursor: pointer;
+    
+}
+
+.bt:hover{
+    background-color: #f1a757;
+}
+
+h1{
+    font-weight: bolder;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+mat-label{
+    color: #110f0c;
+    }
+    .reg{
+        color: rgb(79, 79, 147);
+    }

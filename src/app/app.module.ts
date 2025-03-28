@@ -1,41 +1,51 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { MainSliderComponent } from './home/main-slider/main-slider.component';
-import { ProductSliderComponent } from './home/product-slider/product-slider.component';
-import { HomeProductCardComponent } from './home/home-product-card/home-product-card.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { NavContentComponent } from './navbar/nav-content/nav-content.component';
-import {MatIconModule} from  '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { FooterComponent } from './footer/footer.component';
+
+import { FeatureModule } from './Module/feature/feature.module';
+import { SharedModule } from './Module/shared/shared.module';
+import { AdminModule } from './Module/admin/admin.module';
+import { StoreModule } from '@ngrx/store';
+import { AuthModule } from './Module/auth/auth.module';
+import { authReducer } from './State/Auth/auth.reduse';
+import { userReducer } from './State/user/user.reducer';
+import { HttpClientModule } from '@angular/common/http';
+import { MatMenu, MatMenuModule } from '@angular/material/menu';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    MainSliderComponent,
-    ProductSliderComponent,
-    HomeProductCardComponent,
-    NavbarComponent,
-    NavContentComponent,
-    FooterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatIconModule,
-    MatButtonModule,
-    MatMenuModule,
-    CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FeatureModule,
+    SharedModule,
+    AdminModule,
+    AuthModule,
+    StoreModule.forRoot({ auth: authReducer, user: userReducer }),
+    HttpClientModule,
+     MatButtonModule,
+        MatIconModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatCheckboxModule,
+        FormsModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,41 @@
+
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <div style="display: flex;" class="flex h-16 justify-between">
+            <h1 class="items-center font-bold mt-5"> WelCome to Maahish</h1>
+            <mat-icon (click)="cancelDialog()">cancel</mat-icon>
+        </div>
+       
+        <div layout="column">
+            <mat-form-field class="field w-full  ">
+                <mat-label >Email</mat-label>
+                <input matInput placeholder="email" formControlName="email" required email>
+                <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is required</mat-error>
+                <mat-error *ngIf="loginForm.controls['email'].hasError('email')" >Please enter a valid email
+                    Address</mat-error>
+            </mat-form-field>
+<br>
+            <mat-form-field class="field w-full  ">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" placeholder="password" required password>
+
+                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Password is required</mat-error>
+                <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">Password should be at least 8 characters long
+                    </mat-error>
+            </mat-form-field>
+
+            <div inert class="bt">
+                <button style="padding: 1.7rem" mat-raised-button
+                class="w-full mt-18"
+                color="green">
+            LOGIN</button>
+            </div>
+
+            <div class=" m-10">
+                <p class="">Forget Password</p>
+                <span>If you don't have account ?</span>
+                <button class="reg" mat-button color="accent"  (click)="changeToRegister()">REGISTER</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -4,13 +4,16 @@
 @tailwind utilities;
 
 body{
+    box-sizing: border-box;
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #2a2939;
-    color: rgb(245, 240, 240);
+    background-color: rgb(255, 242, 215);
+    color: rgb(10, 9, 9);
     
 }
 box{
     box-shadow: rgb(186, 188, 244) 0px 5px 15px;
     padding: 15px;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

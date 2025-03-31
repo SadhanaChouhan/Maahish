@@ -16,9 +16,9 @@ constructor(private router:Router){}
    }
 
 orderFilter=[
-  { value:"on the way",label:"on the way"},
-  {value:"deliverd",label:"deliverd"},
-  {value:"cancelled",label:"cancelled"},
-  {value:"returned",label:"returned"}
+  { value:"on the way",label:"On The Way"},
+  {value:"deliverd",label:"Deliverd"},
+  {value:"cancelled",label:"Cancelled"},
+  {value:"returned",label:"Returned"}
 ]
 }

@@ -11,15 +11,18 @@ import { SharedModule } from './Module/shared/shared.module';
 import { AdminModule } from './Module/admin/admin.module';
 import { StoreModule } from '@ngrx/store';
 import { AuthModule } from './Module/auth/auth.module';
-import { authReducer } from './State/Auth/auth.reduse';
+import { authReducer } from './State/Auth/auth.reducer';
 import { userReducer } from './State/user/user.reducer';
 import { HttpClientModule } from '@angular/common/http';
-import { MatMenu, MatMenuModule } from '@angular/material/menu';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import {  MatMenuModule } from '@angular/material/menu';
+import {  MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { productReducer } from './State/Product/product.reducer';
+import { cartReducer } from './State/cart/cart.reducer';
+import { orderReducer } from './State/order/order.reducer';
 
 
 
@@ -36,7 +39,14 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     AdminModule,
     AuthModule,
-    StoreModule.forRoot({ auth: authReducer, user: userReducer }),
+    StoreModule.forRoot({
+      auth: authReducer,
+      user: userReducer,
+      product:productReducer,
+      cart:cartReducer,
+      order:orderReducer
+    },
+  {}),
     HttpClientModule,
      MatButtonModule,
         MatIconModule,

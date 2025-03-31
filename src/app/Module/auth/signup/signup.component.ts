@@ -62,18 +62,18 @@ export class SignupComponent {
     this.dialogRef.close();
   }
 
-  changeToLogin(){
-    this.openSignInDialog();
-  }
+  // changeToLogin(){
+  //   this.openSignInDialog();
+  // }
 
-   openSignInDialog(){
-      const dialogRef = this.dialog.open(SigninComponent,{
-        width:"500px",
-        disableClose:true,
-        autoFocus : true,
-      });
-      dialogRef.afterClosed.arguments((res:any)=>{
+  //  openSignInDialog(){
+  //     const dialogRef = this.dialog.open(SigninComponent,{
+  //       width:"500px",
+  //       disableClose:true,
+  //       autoFocus : true,
+  //     });
+  //     dialogRef.afterClosed.arguments((res:any)=>{
   
-      });
-    }
+  //     });
+  //   }
 }

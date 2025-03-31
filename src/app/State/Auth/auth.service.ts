@@ -36,6 +36,7 @@ export class AuthService{
     }
 
     register(user:any){
+        console.log("register")
         return this.http.post(`${this.apiUrl}/signup`, user);
         // .pipe(
         //     map((user:any)=>{

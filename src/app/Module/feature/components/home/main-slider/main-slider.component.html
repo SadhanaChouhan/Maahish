@@ -1,5 +1,5 @@
 <div class="relative">
-    <div class="slider overflow-x-hidden">
+    <div class="slider overflow-x-hidden pt-20 ">
         <div class="slider" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
             <ng-container class="" *ngFor="let item of sliderData; let i=index">
                 <a [routerLink]="item.path" class="slider-item">

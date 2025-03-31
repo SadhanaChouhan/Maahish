@@ -13,6 +13,7 @@ import { OrderComponent } from './Module/feature/components/order/order.componen
 import { OrderDetailsComponent } from './Module/feature/components/order-details/order-details.component';
 import { SignupComponent } from './Module/auth/signup/signup.component';
 import { SigninComponent } from './Module/auth/signin/signin.component';
+import { AboutComponent } from './Module/feature/components/about/about.component';
 
 const routes: Routes = [
   {path:"admin",loadChildren:()=>import("./Module/admin/admin-routing.module").then(m=>AdminRoutingModule)},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:"order-details",component:OrderDetailsComponent},
   {path:"sign-up",component:SignupComponent},
   {path:"sign-in",component:SigninComponent},
+  {path:"about",component:AboutComponent},
  
 ];
 

@@ -1,12 +1,17 @@
 .nav-container {
-    background-color: rgb(216, 174, 126);
+    // background: linear-gradient(45deg, #a4b9bd, #9cb89c, #606256); 
+    background: linear-gradient(45deg, 
+    #ff000040, #ff7f0040, #ffff0040, #00ff0040, 
+    #0000ff40, #4b008240, #9400d340 );
+ 
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
     /* Add background color */
     box-shadow: 0 2px 4px rgba(249, 249, 250, 0.7); /* Add shadow for depth */
 }
 
 .nav-content {
     display: flex;
-    height: 4rem;
+    height: 5rem;
     align-items: center;
     justify-content: space-between;
 }

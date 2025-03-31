@@ -6,13 +6,14 @@
     flex: 0 0 auto;
     width: 100%;
 }
-.slider-item img{
-    width: 100%;
-    height: 600px;
-    padding: 10px;
-    margin-top: 20px;
+.slider-item{
+    justify-content: center;
+    display: flex;
+    img{
+        width: 95%;
+        height: 600px;
+        padding: 10px;
+        margin-top: 20px;
 
-    
-   
-  
+    }   
 }

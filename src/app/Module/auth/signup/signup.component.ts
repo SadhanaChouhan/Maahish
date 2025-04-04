@@ -66,14 +66,18 @@ export class SignupComponent {
   //   this.openSignInDialog();
   // }
 
-  //  openSignInDialog(){
-  //     const dialogRef = this.dialog.open(SigninComponent,{
-  //       width:"500px",
-  //       disableClose:true,
-  //       autoFocus : true,
-  //     });
-  //     dialogRef.afterClosed.arguments((res:any)=>{
+   openSignInDialog(){
+      const dialogRef = this.dialog.open(SigninComponent,{
+        width:"500px",
+        disableClose:true,
+        autoFocus : true,
+      });
+      dialogRef.afterClosed.arguments((res:any)=>{
   
-  //     });
-  //   }
+      });
+    }
+  openLoginForm() {
+    this.dialogRef.close();
+    this.openSignInDialog();
+  }
 }

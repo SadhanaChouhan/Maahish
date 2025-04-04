@@ -40,6 +40,8 @@ export class SigninComponent {
   }
 
   changeToRegister(){
+    this.dialogRef.close();
+
     this.openSignUpDialog();
   }
 

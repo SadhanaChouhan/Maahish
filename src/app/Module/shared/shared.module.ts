@@ -14,6 +14,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { AddressCardComponent } from './components/address-card/address-card.component';
 import { OrderTrackerComponent } from './components/order-tracker/order-tracker.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CartItemComponent,
     AddressCardComponent,
     OrderTrackerComponent,
+    StarRatingComponent,
    
   ],
   imports: [
@@ -44,7 +46,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProductCardComponent,
     CartItemComponent,
     AddressCardComponent,
-    OrderTrackerComponent
+    OrderTrackerComponent,
+    StarRatingComponent,
+
   ]
 })
 export class SharedModule { }

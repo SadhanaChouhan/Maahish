@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { sareesData } from 'src/Data/sarees';
 
 @Component({
   selector: 'app-product-details',
@@ -9,7 +10,12 @@ import { Router } from '@angular/router';
 export class ProductDetailsComponent {
  @Input() product:any
 
-  reviews=[1,1,1]
+  reviews=[1,1,1];
+  reletedProducts:any;
+
+  ngOnInit(){
+    this.reletedProducts= sareesData;
+  }
 
   constructor(private router:Router){}
   handleAddToCart(){

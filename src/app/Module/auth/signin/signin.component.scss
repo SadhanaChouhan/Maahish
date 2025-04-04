@@ -1,17 +1,11 @@
-// .contain{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     margin-top: 150px;
 
-// }
 .container{
     overflow: hidden;
     padding: 1rem;
     text-align: center;
     height: 500px;
     width: 500px;
-    background-color: #f5d8ba;
+    background-color: #e6e0da;
     
 }
 p{
@@ -25,15 +19,15 @@ p{
     margin: 10px;
  margin-bottom: 40px;
    align-items: center;
-    background-color: #794d1d;
-    color: rgb(244, 240, 240);
+    background-color: #244348;
+    color: rgb(240, 240, 240);
     
     cursor: pointer;
     
 }
 
 .bt:hover{
-    background-color: #f1a757;
+    background-color: #5d7d7f;
 }
 
 h1{
@@ -46,11 +40,6 @@ h1{
     color: rgb(79, 79, 147);
 }
 
-// mat-error{
-//     color: red;
-//     font-weight: lighter;
-//     font-size: 15px;
-// }
   
 mat-label{
 color: #110f0c;

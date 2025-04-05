@@ -1,19 +1,36 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog'
 import { AuthComponent } from 'src/app/Module/auth/auth.component';
 import { SigninComponent } from 'src/app/Module/auth/signin/signin.component';
 import { SignupComponent } from 'src/app/Module/auth/signup/signup.component';
+import { SharedService } from '../../shared.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnChanges{
 
 
-  constructor(private router:Router, private dialog:MatDialog){}
+  constructor(private router:Router, private dialog:MatDialog,
+    public sharedService: SharedService
+  ){}
+
+  ngOnInit(): void {
+    if(localStorage.getItem("userDatials") != null){
+      let user: any = localStorage.getItem("userDatials");
+      this.sharedService.userDatials = JSON.parse(user);
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(localStorage.getItem("userDatials") != null){
+      let user: any = localStorage.getItem("userDatials");
+      this.sharedService.userDatials = JSON.parse(user);
+    }
+  }
 
   navigateTo(path:any){
     this.router.navigate([path])

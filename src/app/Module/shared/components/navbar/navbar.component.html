@@ -26,11 +26,11 @@
 
     <div class="flex ">
        
-        <button mat-button class="nav-button" (click)="handleOpenLoginModal()">Login</button>
-        <button mat-button class="nav-button" (click)="handleOpenRegisterModal()">SignUp</button>
+        <button *ngIf="!this.sharedService.userDatials" mat-button class="nav-button" (click)="handleOpenLoginModal()">Login</button>
+        <button *ngIf="!this.sharedService.userDatials" mat-button class="nav-button" (click)="handleOpenRegisterModal()">SignUp</button>
         <div class=" relative ml-3 flex items-center">
             <div class="flex items-center space-x-5">
-                <span class=" user-name font-bold text-lg">Sadhana</span>
+                <span class=" user-name font-bold text-lg">{{this.sharedService.userDatials? this.sharedService.userDatials?.firstName: ""}}</span>
                 <button  mat-button [matMenuTriggerFor]="profileMenu">
                     <img src="https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain" alt="" class="user-avatar">
                 </button>

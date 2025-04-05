@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/State/Auth/auth.service';
 import { SignupComponent } from '../signup/signup.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SharedService } from '../../shared/shared.service';
 import { AdminRegisterComponent } from '../../admin/component/admin-register/admin-register.component';
 
 @Component({
@@ -21,8 +23,9 @@ export class SigninComponent {
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<SigninComponent>,
     private router :Router,
-    private dialog:MatDialog
-  
+    private dialog:MatDialog,
+    private snackBar: MatSnackBar,
+    public sharedService: SharedService
   ){}
 
   loginForm: FormGroup = this.formBuilder.group({
@@ -30,11 +33,26 @@ export class SigninComponent {
     password: ['', [Validators.required, Validators.minLength(8)]]
   })
 
-  submitForm(): void{
+  submitForm() {
     if(this.loginForm.valid){
-      this.authService.login(this.loginForm.value)
-      console.log("login required  data", this.loginForm.value)
+      this.authService.login(this.loginForm.value).subscribe((res:any)=>{
+        if(res.Error){
+          this.getToastMsg(res.Error);
+        }else{
+          localStorage.setItem("userDatials",(res.token));
+          this.sharedService.userDatials = JSON.parse(res.token);
+          this.dialogRef.close();
+        }
+      });
     }
+  }
+
+  getToastMsg(msg:any){
+    this.snackBar.open(msg, "",  {
+      duration: 3000,  horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['custom-snackbar']
+    });
   }
   cancelDialog(){
     this.dialogRef.close();

@@ -1,5 +1,6 @@
 import { Component,Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { FeatureService } from '../../../service/feature.service';
 
 @Component({
   selector: 'app-home-product-card',
@@ -10,9 +11,10 @@ export class HomeProductCardComponent {
 
   @Input() product: any;
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private featureService: FeatureService){}
 
   openProductDetils(path:any){
-    this.router.navigate([path])
+    this.featureService.setSelectedProduct(this.product);
+    this.router.navigate([path]);
   }
 }

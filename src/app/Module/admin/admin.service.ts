@@ -11,6 +11,6 @@ export class AdminService {
     constructor(private http:HttpClient, private store: Store){}
 
     addProduct(productJson:any){
-        return this.http.post(`${this.apiUrl}/createProduct`, productJson);
+        return this.http.post(`${this.apiUrl}/product/createProduct`, productJson);
     }
 }

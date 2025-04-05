@@ -65,7 +65,7 @@
                         <mat-label>Category</mat-label>
                         <mat-select [(ngModel)]="productCategory" name="productCategory">
                             <mat-option value="sarees">Sarees</mat-option>
-                            <mat-option value="sut-materials">Sut Materials</mat-option>
+                            <mat-option value="sut-materials">Suit Materials</mat-option>
                             <mat-option value="scarfs">Scarfs</mat-option>
                           </mat-select>
                     </mat-form-field>
@@ -95,7 +95,7 @@
 
             <div class="col-span-2 mt-10 ">
                 <button class="w-full" style="padding: 1.6rem"  type="submit"
-                    mat-raised-button >Add Product</button>
+                    mat-raised-button (click)="addProduct()">Add Product</button>
             </div>
         </form>
     </div>

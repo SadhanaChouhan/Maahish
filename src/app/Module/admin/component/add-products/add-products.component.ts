@@ -50,15 +50,19 @@ export class AddProductsComponent {
     }
 
     const newProduct = {
+      title: this.productName,
       name: this.productName,
       price: this.productPrice,
       category: this.productCategory,
       description: this.productDescription,
-      fabricType: this.fabricType,
+      fabric: this.fabricType,
       quantity: this.productQuantity,
       color: this.color,
       length: this.length,
-      discountedPrice: this.discountedPrice 
+      discountedPrice: this.discountedPrice,
+      imageUrl: this.productImageUrl,
+      discountPersent: this.discountedPrice,
+      brand: "Maheshwari"
     };
 
     console.log('Product Added:', newProduct);

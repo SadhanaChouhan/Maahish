@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { sareesData } from 'src/Data/sarees';
+import { FeatureService } from '../../service/feature.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,10 +15,11 @@ export class ProductDetailsComponent {
   reletedProducts:any;
 
   ngOnInit(){
+    this.product = this.featureService.getSelectedProduct();
     this.reletedProducts= sareesData;
   }
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private featureService: FeatureService){}
   handleAddToCart(){
     this.router.navigate(['cart'])
   }

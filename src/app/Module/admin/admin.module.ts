@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './component/admin.component';
@@ -8,6 +11,14 @@ import { AdminProductsComponent } from './component/admin-products/admin-product
 import { OrdersTableComponent } from './component/orders-table/orders-table.component';
 import { CustomersComponent } from './component/customers/customers.component';
 import { AddProductsComponent } from './component/add-products/add-products.component';
+import { AdminLoginComponent } from './component/admin-login/admin-login.component';
+import { AdminRegisterComponent } from './component/admin-register/admin-register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -17,11 +28,23 @@ import { AddProductsComponent } from './component/add-products/add-products.comp
     AdminProductsComponent,
     OrdersTableComponent,
     CustomersComponent,
-    AddProductsComponent
+    AddProductsComponent,
+    AdminLoginComponent,
+    AdminRegisterComponent
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    MatFormFieldModule,
+       MatInputModule,
+       ReactiveFormsModule,
+       MatButtonModule,
+       MatDialogModule,
+       FormsModule,
+       MatIconModule,
+       FlexLayoutModule,
+       BrowserModule,
+       MatSnackBarModule,
+       AdminRoutingModule
   ]
 })
 export class AdminModule { }

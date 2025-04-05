@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/State/Auth/auth.service';
 import { SigninComponent } from '../signin/signin.component';
+import { AdminLoginComponent } from '../../admin/component/admin-login/admin-login.component';
 
 @Component({
   selector: 'app-signup',
@@ -66,7 +67,7 @@ export class SignupComponent {
   //   this.openSignInDialog();
   // }
 
-   openSignInDialog(){
+   openLogInDialog(){
       const dialogRef = this.dialog.open(SigninComponent,{
         width:"500px",
         disableClose:true,
@@ -78,6 +79,22 @@ export class SignupComponent {
     }
   openLoginForm() {
     this.dialogRef.close();
-    this.openSignInDialog();
+    this.openLogInDialog();
+  }
+
+  changeAdminLogin(){
+    this.dialogRef.close();
+    this.openAdminLogInDialog();
+  }
+
+  openAdminLogInDialog(){
+    const dialogRef = this.dialog.open(AdminLoginComponent,{
+      width:"500px",
+      disableClose:true,
+      autoFocus : true,
+    });
+    dialogRef.afterClosed.arguments((res:any)=>{
+
+    });
   }
 }

@@ -1,8 +1,8 @@
 
 <div class="container">
-    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <form [formGroup]="loginForm" >
         <div style="display: flex;" class="flex h-16 justify-between">
-            <h1 class="items-center font-bold mt-5"> WelCome to Maahish</h1>
+            <h1 class="items-center font-bold mt-5"> WelCome to Maahish as Admin</h1>
             <mat-icon (click)="cancelDialog()">cancel</mat-icon>
         </div>
        
@@ -24,20 +24,19 @@
                     </mat-error>
             </mat-form-field>
 
-            <div inert class="bt">
+            <div  class="bt">
                 <button style="padding: 1.7rem" mat-raised-button
                 class="w-full mt-18"
-                color="green"
-                (click)="submitForm()">
+                color="green">
+                <!-- (click)="submitForm()"> -->
             LOGIN</button>
             </div>
 
-            <div class=" m-10">
+            <!-- <div class=" m-10">
                 <p class="">Forget Password</p>
                 <span>If you don't have account ?</span>
-                <button class="reg" mat-button color="accent"  (click)="changeToRegister()">REGISTER</button><br>
-                <!-- <button class="reg" (click)="changeAdminRegister()">  Register as Admin</button> -->
-            </div>
+                <button class="reg" mat-button color="accent"  (click)="changeToRegister()">REGISTER as Admin</button>
+            </div> -->
         </div>
     </form>
 </div>

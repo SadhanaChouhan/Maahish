@@ -1,0 +1,53 @@
+<div class="contain">
+    <div class="container">
+        <form [formGroup]="loginForm" >
+            <div style="display: flex;" class="flex h-16 justify-between">
+                <h1 class="items-center font-bold mt-5"> Create an Account as Admin</h1>
+                <mat-icon (click)="cancelDialog()">cancel</mat-icon>
+            </div>
+            <div>
+    
+                <mat-form-field class="field w-full">
+                    <mat-label >First Name</mat-label>
+                    <input matInput placeholder="firstName" formControlName="firstName" required>
+                    <mat-error *ngIf="loginForm.controls['firstName'].hasError('required')">First Name  is required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="field w-full">
+                    <mat-label >Last Name</mat-label>
+                    <input matInput placeholder="lastName" formControlName="lastName" required>
+                    <mat-error *ngIf="loginForm.controls['lastName'].hasError('required')">Last Name  is required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="field w-full">
+                    <mat-label >Email</mat-label>
+                    <input matInput placeholder="email" formControlName="email" required email>
+                    <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="loginForm.controls['email'].hasError('email')" >Please enter a valid email
+                        Address</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field class="field w-full">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" placeholder="password" required password>
+    
+                    <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Password is required</mat-error>
+                    <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">Password should be at least 8 characters long
+                        </mat-error>
+                </mat-form-field>
+    
+                <div  class="bt">
+                    <button style="padding: 1.7rem" mat-raised-button
+                    class="w-full mt-18"
+                    color="green" >
+                SIGNUP</button>
+                </div>
+    
+                <div>
+                    <span>Already have an account ?</span>
+                    <button class="reg" (click)="changeAdminLogin()">LOGIN AS ADMIN</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>

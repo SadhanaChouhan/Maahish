@@ -1,0 +1,47 @@
+
+.container{
+    overflow: hidden;
+    padding: 1rem;
+    text-align: center;
+    height: 500px;
+    width: 500px;
+    background-color: #e6e0da;
+    
+}
+p{
+    color:  rgb(36, 36, 100);
+    margin: 1px;
+    cursor: pointer;
+}
+
+
+.bt{
+    margin: 10px;
+ margin-bottom: 40px;
+   align-items: center;
+    background-color: #244348;
+    color: rgb(240, 240, 240);
+    
+    cursor: pointer;
+    
+}
+
+.bt:hover{
+    background-color: #5d7d7f;
+}
+
+h1{
+    font-weight: bolder;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.reg{
+    color: rgb(79, 79, 147);
+}
+
+  
+mat-label{
+color: #110f0c;
+}
+  

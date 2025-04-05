@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/State/Auth/auth.service';
 import { SignupComponent } from '../signup/signup.component';
+import { AdminRegisterComponent } from '../../admin/component/admin-register/admin-register.component';
 
 @Component({
   selector: 'app-signin',
@@ -42,10 +43,10 @@ export class SigninComponent {
   changeToRegister(){
     this.dialogRef.close();
 
-    this.openSignUpDialog();
+    this.openRegisterDialog();
   }
 
-   openSignUpDialog(){
+   openRegisterDialog(){
       const dialogRef = this.dialog.open(SignupComponent,{
         width:"500px",
         disableClose:true,
@@ -55,4 +56,19 @@ export class SigninComponent {
   
       });
     }
+
+    changeAdminRegister(){
+      this.dialogRef.close();
+      this.openAdminRegisterDialog();
+    }
+
+    openAdminRegisterDialog(){ 
+      const dialogRef = this.dialog.open(AdminRegisterComponent,{
+          width:"500px",
+          disableClose:true,
+          autoFocus : true,
+        });
+        dialogRef.afterClosed.arguments((res:any)=>{
+    
+        });}
 }

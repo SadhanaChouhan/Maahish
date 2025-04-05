@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AdminService } from '../../admin.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-products',
@@ -19,6 +21,11 @@ export class AddProductsComponent {
   discountedPrice: File | null = null;
   productImageUrl: string | null = null;
 
+  constructor(private adminService: AdminService,
+      private snackBar: MatSnackBar,
+  ){
+
+  }
   // Handle Image Upload
   onFileSelected(event: any) {
     const file = event.target.files[0];
@@ -55,7 +62,9 @@ export class AddProductsComponent {
     };
 
     console.log('Product Added:', newProduct);
-    alert('Product added successfully!');
+    this.adminService.addProduct(newProduct).subscribe(res=>{
+      this.getToastMsg('Product added successfully!');
+    });
 
     // Reset Form
     this.productName = '';
@@ -68,5 +77,13 @@ export class AddProductsComponent {
     this.length = '';
     this.discountedPrice = null;
     this.productImageUrl = null;
+  }
+
+  getToastMsg(msg:any){
+    this.snackBar.open(msg, "",  {
+      duration: 3000,  horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['custom-snackbar']
+    });
   }
 }

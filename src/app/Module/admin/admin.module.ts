@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select'; 
+
+import { MatCardModule } from '@angular/material/card';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './component/admin.component';
@@ -19,7 +22,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
        FlexLayoutModule,
        BrowserModule,
        MatSnackBarModule,
-       AdminRoutingModule
-  ]
+       AdminRoutingModule,
+           MatMenuModule,
+           MatProgressBarModule,
+           MatFormFieldModule,
+           ReactiveFormsModule,
+           MatSelectModule,
+           MatCardModule, 
+           MatDividerModule
+   ]
+           
+  
 })
 export class AdminModule { }

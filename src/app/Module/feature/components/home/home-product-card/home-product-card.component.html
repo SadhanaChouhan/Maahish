@@ -10,9 +10,16 @@
         </a>
 
         <div class="p-2 ">
-          <h3 class="text-lg font-semibold">{{product.name}}</h3>
-          <p class="text-sm text-gray-600">{{product.fabric}}</p>
-          <p class="mt-1 text-l font-bold">₹{{product.price}}</p>
+          <h3 class="text-lg font-bold text-black">{{product.name}}</h3>
+          <p class="text-sm text-gray-1200 ml-6"> <span class="font-bold ">Fabric Type:</span>  {{product.fabric}} </p> 
+          <p class="text-sm text-gray-1200 ml-6"> <span class="font-bold ">Color:</span>  {{product.color}} </p> 
+
+             
+          <p class=" text-l font-bold">₹{{product.discountedPrice}}
+            <span class="mt-1 text-l font-bold line-through  ml-6">₹{{product.price}}</span>
+          </p>
+          <!-- <p class="mt-1 text-l font-bold line-through ">₹{{product.price}}</p> -->
+
         </div>
 
       </div>

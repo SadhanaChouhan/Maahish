@@ -1,3 +1,17 @@
 .bg{
-    background-color: rgb(222, 225, 227);
+    // background-color: rgb(222, 225, 227);
+    box-shadow: 0 0 5px 0 rgb(72, 71, 71);
+}
+
+.btn{
+    background-color: rgb(106, 61, 54);
+    color: white;
+    width: 50%;
+    height: 40px;
+    box-shadow: 0 0 10px 0 rgb(101, 95, 95);
+}
+
+.btn:hover{
+    color: black;
+    background-color: rgb(164, 94, 94);
 }

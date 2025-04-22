@@ -10,21 +10,21 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import{MatRadioModule} from '@angular/material/radio';
-import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { AddressCardComponent } from './components/address-card/address-card.component';
 import { OrderTrackerComponent } from './components/order-tracker/order-tracker.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    CartItemComponent,
     AddressCardComponent,
     OrderTrackerComponent,
     StarRatingComponent,
+    UserProfileComponent,
    
   ],
   imports: [
@@ -44,7 +44,6 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     NavbarComponent,
     FooterComponent,
     ProductCardComponent,
-    CartItemComponent,
     AddressCardComponent,
     OrderTrackerComponent,
     StarRatingComponent,

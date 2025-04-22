@@ -1,0 +1,35 @@
+<div class="p-5 shadow-lg">
+    <div class="flex items-center">
+        <div class="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem] ">
+            <img class="w-full h-full object-cover object-top" [src]="item.product.imageUrl" alt="" (click)="goToDetailsPage()">
+        </div>
+        <div class="ml-5 space-y-1">
+            <p class="font-semibold">{{item.product.title}}</p>
+            <p>Color: {{item.product.color}}</p>
+            <p class="mt-2">Fabric: {{item.product.fabric}}</p>
+            <div class="flex space-x-2 items-center pt-3">
+                <p class="text-black-500">{{item.product.discountedPrice}}</p>
+                <p class="text-green-500 line-through">{{item.product.price}}</p>
+            </div>
+        </div>
+    </div>
+    <div  *ngIf="showButton" class="flex items-center lg:space-x-10 pt-4 justify-between">
+        <div class="flex items-center space-x-2">
+            
+            <div class="example-button-container">
+                <button mat-mini-fab color="accent" (click)="updateCartItem(-1)" [disabled]="true">
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+            <span class="py-1 px-7 border-gray-500 rounded-sm">1</span>
+            <div class="example-button-container">
+                <button mat-mini-fab color="accent" (click)="updateCartItem(1)" [disabled]="false">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+           
+        </div>
+        <button  (click)="removeCartItem()" color="accent" mat-stroked-button>Remove</button>
+    </div>
+</div>
+

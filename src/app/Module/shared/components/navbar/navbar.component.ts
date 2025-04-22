@@ -75,6 +75,21 @@ export class NavbarComponent implements OnInit, OnChanges{
 
     });
   }
+
+  logOut(){
+    console.log("logout")
+    localStorage.clear();
+    this.sharedService.userDatials = [];
+    this.router.navigate([""]);
+  }
+
+  home(){
+    this.router.navigate([""]);
+  }
+
+  about(path:any){
+    this.router.navigate([path]);
+  }
 //   currentSection:any
 //   isNavbarContentOpen:any
 

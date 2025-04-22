@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../admin.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './add-products.component.html',
   styleUrls: ['./add-products.component.scss']
 })
-export class AddProductsComponent {
+export class AddProductsComponent implements OnInit {
   productName: string = '';
   productPrice: number = 2500;
   productCategory: string = 'sarees'; 
@@ -20,11 +20,30 @@ export class AddProductsComponent {
   length: string = '';
   discountedPrice: File | null = null;
   productImageUrl: string | null = null;
-
+  product: any = [];
+  isAdd: any = true;
   constructor(private adminService: AdminService,
       private snackBar: MatSnackBar,
+      private route: ActivatedRoute
   ){
 
+  }
+  ngOnInit(): void {
+    this.isAdd = this.route.snapshot.queryParamMap.get('isAdd');
+    this.isAdd = this.isAdd === 'false'? false: true;
+    if(!this.isAdd){
+      this.product = this.adminService.getEditProduct();
+      this.productName = this.product.name;
+      this.productPrice = this.product.price;
+      this.productCategory = this.product.category;
+      this.productDescription = this.product.description;
+      this.fabricType = this.product.fabric;
+      this.productQuantity = this.product.quantity;
+      this.color = this.product.color;
+      this.length = this.product.length;
+      this.discountedPrice = this.product.discountedPrice;
+      this.productImageUrl = this.product.imageUrl;
+    }
   }
   // Handle Image Upload
   onFileSelected(event: any) {
@@ -48,8 +67,7 @@ export class AddProductsComponent {
       alert('Please fill in all required fields correctly.');
       return;
     }
-
-    const newProduct = {
+    const newProduct: any = {
       title: this.productName,
       name: this.productName,
       price: this.productPrice,
@@ -64,10 +82,15 @@ export class AddProductsComponent {
       discountPersent: this.discountedPrice,
       brand: "Maheshwari"
     };
+    if(!this.isAdd)
+      newProduct.id = this.product.id;
 
     console.log('Product Added:', newProduct);
     this.adminService.addProduct(newProduct).subscribe(res=>{
-      this.getToastMsg('Product added successfully!');
+      if(this.isAdd)
+        this.getToastMsg('Product added successfully!');
+      else
+        this.getToastMsg('Product updated successfully!');
     });
 
     // Reset Form

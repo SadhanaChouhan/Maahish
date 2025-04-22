@@ -1,5 +1,5 @@
 <div class="col-span-1 lg:col-span-7 mt-20"> 
-<h1 class="items-center p-10 ml-10">Add New Products Here...</h1>
+<h1 class="items-center p-10 ml-10">{{this.isAdd? 'Add New Products Here...' : 'Edit New Products Here...'}}</h1>
     <div class=" p-5 box">
         <form  >
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 ">
@@ -65,7 +65,7 @@
                         <mat-label>Category</mat-label>
                         <mat-select [(ngModel)]="productCategory" name="productCategory">
                             <mat-option value="sarees">Sarees</mat-option>
-                            <mat-option value="sut-materials">Suit Materials</mat-option>
+                            <mat-option value="suit-materials">Suit Materials</mat-option>
                             <mat-option value="scarfs">Scarfs</mat-option>
                           </mat-select>
                     </mat-form-field>
@@ -95,7 +95,7 @@
 
             <div class="col-span-2 mt-10 ">
                 <button class="w-full" style="padding: 1.6rem"  type="submit"
-                    mat-raised-button (click)="addProduct()">Add Product</button>
+                    mat-raised-button (click)="addProduct()">{{isAdd? 'Add Product': 'Update Product'}}</button>
             </div>
         </form>
     </div>

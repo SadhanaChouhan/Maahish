@@ -30,7 +30,8 @@ export class SigninComponent {
 
   loginForm: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    isAdmin: false
   })
 
   submitForm() {

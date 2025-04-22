@@ -1,1 +1,68 @@
-<p>dashboard works!</p>
+<div class="home">
+
+    <div>
+        <div class="lg:px-8 lg:py-5 ">
+            <p class=" title font-semibold text-2xl opacity-75 ">Sarees</p>
+        
+            <div class="product-grid flex flex-wrap justify-center ">
+                <ng-container *ngFor="let item of products">
+                    <div  *ngIf="item.category === 'sarees'">
+                        <ng-container *ngTemplateOutlet="card; context: { $implicit: item }"></ng-container>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="lg:px-8 lg:py-5 ">
+            <p class=" title font-semibold text-2xl opacity-75 ">Women's Kurta</p>
+        
+            <div class="product-grid flex flex-wrap justify-center ">
+                <ng-container *ngFor="let item of products">
+                    <div  *ngIf="item.category === 'suit-materials'">
+                        <ng-container *ngTemplateOutlet="card; context: { $implicit: item }"></ng-container>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="lg:px-8 lg:py-5 ">
+            <p class=" title font-semibold text-2xl opacity-75 ">Women's Scarfs</p>
+        
+            <div class="product-grid flex flex-wrap justify-center ">
+                <ng-container *ngFor="let item of products">
+                    <div  *ngIf="item.category === 'scarfs'">
+                        <ng-container *ngTemplateOutlet="card; context: { $implicit: item }"></ng-container>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #card let-local>
+
+    <div class="card-container">
+        <div class="flex flex-wrap justify-center">
+          <div
+            class="box cursor-pointer items-center  overflow-hidden w-[15rem] mx-3">
+            <div class="card overflow-hidden w-full relative">
+                <button
+                    mat-icon-button
+                    [matMenuTriggerFor]="profileMenu"
+                    class="top-2 right-2 bg-white/70 hover:bg-white rounded-full p-1 z-10" style="position: absolute;">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <a ><img [src]="local.imageUrl" [alt]="local.name"
+                    class="object-cover " />
+                </a>
+                <mat-menu #profileMenu="matMenu">
+                    <button mat-menu-item (click)="editProduct(local)">Edit</button>
+                    <button mat-menu-item (click)="deleteProduct(local.id)">Delete</button>
+                </mat-menu>
+                <div class="p-2 ">
+                    <h3 class="text-lg font-semibold">{{local.name}}</h3>
+                </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+</ng-template>

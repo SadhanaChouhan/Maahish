@@ -1,8 +1,14 @@
 <div class="space-y-3 items-center p-6  ">
-    <p class="font-semibold">Sadhana chouhan </p>
-    <p>Maheshwar,Madhaya Pradesh</p>
+
+    
+    <p class="font-semibold">{{userDatials.firstName}}</p>
+    <p>{{address.streetAddress}}</p>
+    <p>{{address.nation}}</p>
+    <p>{{address.state}}</p>
+    <p>{{address.zipCode}}</p>
     <div class="space-y-1 ">
-        <p class="font-semibold">Phone Number</p>
-        <p>123445566</p>
+        <p class="font-semibold">Phone Number: <span>+91</span>{{address.mobile}}</p>
+    
     </div>
+    
 </div>

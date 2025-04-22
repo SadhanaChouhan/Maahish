@@ -3,12 +3,12 @@
     <div class=" nav-content flex h-16 items-center justify-between">
 
         <div class="flex item-center">
-            <div class=" logo ">
+            <div class=" logo cursor-pointer " (click)="home()">
                 <img class="" src="./assets/MaahishLogo.jpg" alt="Maahish">
             </div>
             <div>
                 <div  class=" nav-links flex  ">
-                    <a routerLink="/" class=" nav-link  flex">
+                    <a routerLink="/" class=" nav-link  flex" (click)="about('about')">
                         Maahish
                         <span class="text">The Textile of Maheshwar</span>
                         
@@ -26,18 +26,21 @@
 
     <div class="flex ">
        
-        <button *ngIf="!this.sharedService.userDatials" mat-button class="nav-button" (click)="handleOpenLoginModal()">Login</button>
-        <button *ngIf="!this.sharedService.userDatials" mat-button class="nav-button" (click)="handleOpenRegisterModal()">SignUp</button>
+        <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="nav-button" (click)="handleOpenLoginModal()">Login</button>
+        <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="nav-button" (click)="handleOpenRegisterModal()">SignUp</button>
         <div class=" relative ml-3 flex items-center">
             <div class="flex items-center space-x-5">
-                <span class=" user-name font-bold text-lg">{{this.sharedService.userDatials? this.sharedService.userDatials?.firstName: ""}}</span>
+                <span class=" user-name font-bold text-lg text-black-400">{{this.sharedService.userDatials? this.sharedService.userDatials?.firstName: ""}}</span>
                 <button  mat-button [matMenuTriggerFor]="profileMenu">
                     <img src="https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain" alt="" class="user-avatar">
                 </button>
                 <mat-menu #profileMenu="matMenu">
                     <button mat-menu-item>Profile</button>
                     <button (click)="navigateTo('order')" mat-menu-item>Orders</button>
-                    <button mat-menu-item>Logout</button>
+                    <button mat-menu-item (click)="navigateTo('filter')">Filter</button>
+
+                    <button mat-menu-item (click)="logOut()">Logout</button>
+
                 </mat-menu>
             </div> 
             <button  (click)="navigateTo('cart')" mat-icon-button class="nav-icon-button">

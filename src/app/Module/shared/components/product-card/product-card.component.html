@@ -1,21 +1,26 @@
 
 
 <div class="card-container">
-    <div class="flex flex-wrap justify-center">
-    <div class="box hover:scale-105 transition-all duration-500 cursor-pointer items-center  overflow-hidden w-[15rem] mx-5">
-    <div class="card overflow-hidden w-full">
+    <div class="flex flex-wrap ">
+    <div class="box hover:scale-105 transition-all duration-500 cursor-pointer items-center  overflow-hidden w-[15rem] ml-5  bg">
+    <div class="card overflow-hidden w-full" (click)="goToDetail()">
        
           <img
             [src]="product.imageUrl"
             [alt]="product.name"
             class=" object-cover "
+            
           />
        
         <div class=" textPart p-2  text-black">
           <h3 class="text-lg font-semibold">{{product.name}}</h3>
           <p class=" ">{{product.fabric}}</p>
+          <p class="mt-1 text-l font-bold">{{product.color}}</p>
           <p class="mt-1 text-l font-bold">₹{{product.price}}</p>
-          <p class="test-sm">{{product.description}}</p>
+
+
+
+          <!-- <p class="test-sm">{{product.description}}</p> -->
         </div>
         <!-- <div class="p-4 pt-0">
           <button

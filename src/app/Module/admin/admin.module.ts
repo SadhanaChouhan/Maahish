@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select'; 
+import { MatSelectModule } from '@angular/material/select';
 
 import { MatCardModule } from '@angular/material/card';
 
@@ -26,6 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDividerModule } from '@angular/material/divider';
+import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -36,30 +37,34 @@ import { MatDividerModule } from '@angular/material/divider';
     CustomersComponent,
     AddProductsComponent,
     AdminLoginComponent,
-    AdminRegisterComponent
+    AdminRegisterComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
     MatFormFieldModule,
-       MatInputModule,
-       ReactiveFormsModule,
-       MatButtonModule,
-       MatDialogModule,
-       FormsModule,
-       MatIconModule,
-       FlexLayoutModule,
-       BrowserModule,
-       MatSnackBarModule,
-       AdminRoutingModule,
-           MatMenuModule,
-           MatProgressBarModule,
-           MatFormFieldModule,
-           ReactiveFormsModule,
-           MatSelectModule,
-           MatCardModule, 
-           MatDividerModule
-   ]
-           
-  
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    FormsModule,
+    MatIconModule,
+    FlexLayoutModule,
+    BrowserModule,
+    MatSnackBarModule,
+    AdminRoutingModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule
+  ],
+  exports:[
+    ConfirmDialogComponent
+  ]
+
+
 })
 export class AdminModule { }

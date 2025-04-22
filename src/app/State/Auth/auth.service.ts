@@ -19,27 +19,7 @@ export class AuthService{
     }
 
     register(user:any){
-        console.log("register")
-        return this.http.post(`${this.apiUrl}/signup`, user);
-        // .pipe(
-        //     map((user:any)=>{
-        //         console.log('register user',user)
-        //         if(user.jwt){
-        //             localStorage.setItem("jwt",user.jwt);
-        //         }
-
-        //         return registerSuccess({user})
-        //     }),
-        //     catchError((error)=>{
-        //         return of(
-        //             registerFailure(
-        //                 error.response && error.response.data.message ?
-        //                 error.response.data.message : error.message
-        //             )
-        //         )
-        //     })
-        // )
-        // .subscribe((action)=>this.store.dispatch(action))
+        return this.http.post(`${this.apiUrl}/signup`, user); 
     }
 
 }

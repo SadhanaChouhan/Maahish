@@ -15,6 +15,8 @@ export class HomeProductCardComponent {
 
   openProductDetils(path:any){
     this.featureService.setSelectedProduct(this.product);
-    this.router.navigate([path]);
+    localStorage.setItem("productId",this.product.id);
+    this.router.navigate([path]
+    );
   }
 }

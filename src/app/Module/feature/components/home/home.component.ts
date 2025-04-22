@@ -26,18 +26,23 @@ export class HomeComponent {
     this.sarees=sareesData.slice(0,10);
     this.scarfs=scarfsDatta.slice(0,5);
     this.womenKurta=womenKurtaData.slice(0,10);
-    this.menKurta=mensKurtaData.slice(0,5);
+    // this.menKurta=mensKurtaData.slice(0,5);
     this.getProductList();
   }
 
   getProductList(){
-    this.featureService.getProductList().subscribe(res=>{
+   let abc =  this.featureService.getProductList()
+   abc.subscribe(res=>{
       if(res){
-        this.sarees = _.filter(res,(obj:any)=>
+        this.sarees = _.filter(
+          res,(obj:any)=>
           obj.category === "sarees"
         );
         this.womenKurta = _.filter(res,(obj:any)=>
-          obj.category === "sut-materials"
+          obj.category === "suit-materials"
+        );
+        this.scarfs = _.filter(res,(obj:any)=>
+          obj.category === "scarfs"
         );
       }
     });

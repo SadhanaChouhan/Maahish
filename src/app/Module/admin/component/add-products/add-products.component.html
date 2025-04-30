@@ -1,7 +1,7 @@
 <div class="col-span-1 lg:col-span-7 mt-20"> 
 <h1 class="items-center p-10 ml-10">{{this.isAdd? 'Add New Products Here...' : 'Edit New Products Here...'}}</h1>
     <div class=" p-5 box">
-        <form  >
+        <form   >
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 ">
                 <div class="col-span-1  ">
                     <mat-form-field appearance="fill" class="w-full ">
@@ -10,13 +10,34 @@
                             type="text" required>
                     </mat-form-field>
                 </div>
+                <div class="col-span-1 " *ngIf="!this.isAdd">
+                    <div  class="image-preview"  >
+                        <img [src]="productImageUrl" alt="Image Preview" (click)="fileInput.click()" />
+                        
+                    </div>
+                    <input #fileInput type="file" (change)="onFileSelected($event)" hidden />
+                    <p *ngIf="selectedFile">Selected file: {{ selectedFile.name }}</p>
 
-                <div class="col-span-1 ">
-                    <mat-form-field appearance="fill" class="w-full  ">
+                </div>
+                
+                <div class="col-span-1 " *ngIf="this.isAdd">
+                    <!-- <mat-form-field appearance="fill" class="w-full  ">
                         <mat-label>Image URL</mat-label>
                         <input matInput [(ngModel)]="productImageUrl" name="productImageUrl" placeholder="Image URL"
                             type="text" required>
-                    </mat-form-field>
+                    </mat-form-field> -->
+                    <div *ngIf="!selectedFile"  class="upload-box" (click)="fileInput.click()">
+                        <input #fileInput type="file" (change)="onFileSelected($event)" hidden />
+                        <p>Click to upload file</p>
+                    </div>
+                    <div *ngIf="selectedFile" class="image-preview" (click)="fileInput.click()">
+                        <img [src]="productImageUrl" alt="Image Preview"
+                        
+                        />
+                        <input #fileInput type="file" (change)="onFileSelected($event)" hidden />
+
+                    </div>
+                    <p *ngIf="selectedFile">Selected file: {{ selectedFile.name }}</p>
                 </div>
 
                 <div class="col-span-1 ">
@@ -95,7 +116,8 @@
 
             <div class="col-span-2 mt-10 ">
                 <button class="w-full" style="padding: 1.6rem"  type="submit"
-                    mat-raised-button (click)="addProduct()">{{isAdd? 'Add Product': 'Update Product'}}</button>
+                    mat-raised-button  
+                    (click)="addProduct()">{{isAdd? 'Add Product': 'Update Product'}}</button>
             </div>
         </form>
     </div>

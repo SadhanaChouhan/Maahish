@@ -1,12 +1,3 @@
-.nav-container {
-    // background: linear-gradient(45deg, #a4b9bd, #9cb89c, #606256); 
-    background: linear-gradient(to right, #c8827c, #e6d387, #c7edde, #6886a6);
- 
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-    /* Add background color */
-    // box-shadow: 0 2px 4px rgba(34, 34, 34, 0.7); /* Add shadow for depth */
-}
-
 .nav-content {
     display: flex;
     height: 5rem;
@@ -14,95 +5,80 @@
     justify-content: space-between;
 }
 
-// .logo img {
-//     width: 3.9rem;
-// }
-
-.nav-links {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    margin: 3px;
-
-}
-.text{
-    font-weight: lighter;
-    text-decoration: none;
-    font-size: small;
-    justify-content: center;
-}
-
-.nav-link {
-    color: #dfe5f1; /* text-gray-900 */
-    // text-decoration: underline;
-    font-weight: bolder;
-    font-size: x-large;
-    // background: linear-gradient(to right, rgb(242, 96, 96), orange, yellow, rgb(131, 193, 24));
-   margin-left: 10px;
-    color: rgb(8, 7, 8);
-    justify-content: center;
-flex-direction: column;
-
-    cursor: pointer;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-top: 10px;
-}
-
-.nav-button {
-    // background-color: rgb(248, 199, 148); /* dark color */
-    color: #f3f4f7;
-    // border-radius: 4px;
-    padding: 0.5rem 1rem;
-    margin: 5px;
-    font-weight: bolder;
-    // transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
-    // background-color: #f5a42c; 
-    color: rgb(15, 1, 1);
-    // transition: background-color 0.3s ease;
-
-
-    /* darker color */
-}
-
-.nav-icon-button {
-    color: #e6e8eb; /* dark color */
-}
-
 .user-name {
     font-weight: bold;
-    font-size: 1.125rem; /* text-lg */
+    font-size: 1.125rem;
+    /* text-lg */
     color: rgb(16, 16, 16);
 }
 
-.user-avatar {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.logo img{
+.logo img {
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    margin: 5px;
-  
+    margin-right: 20px;
+
 }
 
-.btn{
-    margin-top: 10px;
+
+.header-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+
+    color: #2d2d2d;
+    background: linear-gradient(to right, #c8827c, #e6d387, #c7edde, #6886a6);
+
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+.nav-link {
+    margin: 0 10px;
+    font-weight: 600;
     cursor: pointer;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-// .btn:hover{
-//     color: rgb(241, 74, 74);
-//     transition: background-color 0.3s ease;
-//     font-size: larger;
-// }
 
+.new-badge {
+    color: #ff3f6c;
+    font-size: 10px;
+    font-weight: bold;
+}
 
+.spacer {
+    flex: 1 1 auto;
+}
 
+.search-field {
+    background-color: #f5f5f6;
+    border-radius: 4px;
+    // padding: 0 10px;
+    width: 500px;
+    height: 66px;
+    margin: 5px;
+    margin-right: 50px;
+}
+
+.icon-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    font-size: 12px;
+    color: #2d2d2d;
+}
+
+mat-icon {
+    font-size: 24px;
+}
+::ng-deep{
+    .mat-mdc-form-field-subscript-wrapper {
+        box-sizing: border-box;
+        width: 100%;
+        position: relative;
+        display: none !important;
+    }
+}
 

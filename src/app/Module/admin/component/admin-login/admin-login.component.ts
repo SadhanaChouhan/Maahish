@@ -40,6 +40,7 @@ export class AdminLoginComponent {
             localStorage.setItem("userDatials",(res.token));
             this.sharedService.userDatials = JSON.parse(res.token);
             this.dialogRef.close();
+            this.router.navigate(["admin"]);
           }
         });
       }

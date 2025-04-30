@@ -1,0 +1,10 @@
+<!-- wishlist.component.html -->
+<div class="mt-20"> 
+    <div *ngFor="let item of wishlist">
+        <p>Product ID: {{ item.productId }}</p>
+        <p>User ID: {{ item.userId }}</p>
+
+        <button (click)="removeFromWishlist(item.productId)">Remove</button>
+      </div>
+</div>
+  

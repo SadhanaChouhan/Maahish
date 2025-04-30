@@ -22,4 +22,11 @@ export class AuthService{
         return this.http.post(`${this.apiUrl}/signup`, user); 
     }
 
+    emailVerify(loginData:any){
+        return this.http.post(`${this.apiUrl}/emailVerify`, loginData);
+    }
+
+    otpVerify(email:any, otp:any){
+        return this.http.post(`${this.apiUrl}/verify-otp?email=${email}&otp=${otp}`, []);
+    }
 }

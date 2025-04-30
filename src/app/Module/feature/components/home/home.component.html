@@ -4,8 +4,8 @@
         <app-main-slider/>
     </div>
     <div>
-        <app-product-slider title="Sarees" [products]="sarees"/>
-        <app-product-slider title=" Women's Kurta" [products]="womenKurta" />
-        <app-product-slider title="Women's Scarfs" [products]="scarfs"/>
+        <app-product-slider title="Sarees" [products]="sharedService.sareeList"/>
+        <app-product-slider *ngIf="sharedService.womenKurtaList.length>0" title=" Women's Kurta" [products]="sharedService.womenKurtaList" />
+        <app-product-slider *ngIf="sharedService.scarfList.length>0" title="Women's Scarfs" [products]="sharedService.scarfList"/>
     </div>
 </div>

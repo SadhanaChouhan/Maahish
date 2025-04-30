@@ -6,6 +6,7 @@ import { womenKurtaData } from 'src/Data/womenKurta';
 import { FeatureService } from '../../service/feature.service';
 import { filter } from 'rxjs';
 import * as _ from 'lodash';
+import { SharedService } from 'src/app/Module/shared/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,15 @@ export class HomeComponent {
   womenKurta:any
   menKurta:any
 
-  constructor(private featureService: FeatureService){
+  constructor(private featureService: FeatureService,
+    public sharedService: SharedService
+  ){
 
   }
   ngOnInit() {
-    this.sarees=sareesData.slice(0,10);
-    this.scarfs=scarfsDatta.slice(0,5);
-    this.womenKurta=womenKurtaData.slice(0,10);
+    this.sharedService.sareeList=sareesData.slice(0,10);
+    this.sharedService.scarfList=scarfsDatta.slice(0,5);
+    this.sharedService.womenKurtaList=womenKurtaData.slice(0,10);
     // this.menKurta=mensKurtaData.slice(0,5);
     this.getProductList();
   }
@@ -34,17 +37,22 @@ export class HomeComponent {
    let abc =  this.featureService.getProductList()
    abc.subscribe(res=>{
       if(res){
-        this.sarees = _.filter(
-          res,(obj:any)=>
-          obj.category === "sarees"
-        );
-        this.womenKurta = _.filter(res,(obj:any)=>
-          obj.category === "suit-materials"
-        );
-        this.scarfs = _.filter(res,(obj:any)=>
-          obj.category === "scarfs"
-        );
+        this.sortProduct(res);
       }
     });
+  }
+
+
+  sortProduct(res: any){
+    this.sharedService.sareeList = _.filter(
+      res,(obj:any)=>
+      obj.category === "sarees"
+    );
+    this.sharedService.womenKurtaList = _.filter(res,(obj:any)=>
+      obj.category === "suit-materials"
+    );
+    this.sharedService.scarfList = _.filter(res,(obj:any)=>
+      obj.category === "scarfs"
+    );
   }
 }

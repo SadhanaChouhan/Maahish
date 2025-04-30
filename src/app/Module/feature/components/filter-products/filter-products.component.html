@@ -1,7 +1,12 @@
-<div class="">
-    <main class=" px-4 sm:px-6 lg-px-40 pb-10">
+<!-- <div class="">
+    <main class=" px-4 sm:px-6 lg-px-40 pb-10 pt-24">
         <div class="flex items-baseline justify-between border-gray-200 pb-6 pt-24">
-            <h1 class="text-2xl font-bold text-black">Products</h1>
+            <h1 class="text-2xl font-bold text-black"> Filter Products</h1>
+            <div class="">
+                <input type="text" placeholder="Search..."
+                class="w-full bg-white-500 text-black border-gray-200 in">
+            </div>
+            
             <div class="flex items-center text-black">
                 <div>
                     <button mat-button [matMenuTriggerFor]="sortMenu">
@@ -14,8 +19,106 @@
                 </div>
             </div>
         </div>
-        <mat-divider></mat-divider>
-        <section class="pt-7 bg">
+        <mat-divider></mat-divider> -->
+
+        <!-- <form >
+            <div >
+                <div class="lg:grid grid-cols-6 lg:gap-1 cover p-2   bg-gray-500 font-bold">
+                    <div class="col-span-1">
+                        <button mat-button [matMenuTriggerFor]="sortMenu">
+                            Sort
+                        </button>
+                        <mat-menu #sortMenu="matMenu">
+                            <button mat-menu-item>Price: high-low</button>
+                            <button mat-menu-item>Price: low-high</button>
+                        </mat-menu>
+                    </div>
+                    <div class="col-span-1">
+                        <button mat-button [matMenuTriggerFor]="colorMenu">
+                           Color
+                        </button>
+                        <mat-menu #colorMenu="matMenu">
+                            <mat-checkbox><button mat-menu-item>black</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>Pink</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>REd</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>Yellow</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>White</button>
+                            </mat-checkbox>
+                        </mat-menu>
+                    </div>
+                    <div class="col-span-1">
+                        <button mat-button [matMenuTriggerFor]="fabricMenu">
+                            Fabric Type
+                        </button>
+                        <mat-menu #fabricMenu="matMenu">
+                            <mat-checkbox><button mat-menu-item>Cotton By Silk</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>Silk By Silk</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>Reshm</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>jari</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>kel</button>
+                            </mat-checkbox>
+                        </mat-menu>
+                    </div>
+        
+                    <div class="col-span-1">
+                        <button mat-button [matMenuTriggerFor]="categoryMenu">
+                            Category
+                        </button>
+                        <mat-menu #categoryMenu="matMenu">
+                            <mat-checkbox><button mat-menu-item>Sarees</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>suit-materials</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>Scarfs</button>
+                            </mat-checkbox>
+                            
+                        </mat-menu>
+                    </div>
+                    <div class="col-span-1">
+                        <button mat-button [matMenuTriggerFor]="priceMenu">
+                            Price
+                        </button>
+                        <mat-menu #priceMenu="matMenu">
+                            <mat-checkbox><button mat-menu-item>2000-3000</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>2000-3000</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>2000-3000</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>2000-3000</button>
+                            </mat-checkbox>
+                            <mat-checkbox><button mat-menu-item>2000-3000</button>
+                            </mat-checkbox>
+                            
+                        </mat-menu>
+                    </div>
+                    <div class="col-span-1">
+                        <button class="border-gray-200 bg-red-400 text-white p-2 " >Apply Filter</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="lg:col-span-3">
+            <div class="flex flex-wrap justify-evenly">
+                <ng-container *ngFor="let item of sarees ">
+                    <app-product-card [product]="item"></app-product-card>
+                </ng-container>
+            </div>
+           
+        </div> -->
+           
+        
+
+        <!-- <section class="pt-7 bg">
             <div class="  grid grid-cols-1 lg:grid-cols-4 gap-y-10 gap-4 ">
                 <div class="filter text-black">
                     <div class="flex items-center justify-between mt-5 mr-2">
@@ -52,16 +155,59 @@
                         </div>
                     </form>
                 </div>
-                <div class="lg:col-span-3">
-                    <div class="flex flex-wrap justify-evenly">
-                        <ng-container *ngFor="let item of sarees ">
-                            <app-product-card [product]="item"></app-product-card>
-                        </ng-container>
-                    </div>
-                   
-                </div>
+              
 
             </div>
-        </section>
-    </main>
+        </section> -->
+    <!-- </main>
+</div>  -->
+
+
+<div  style="display: grid; grid-template-columns: 350px 1fr; background-color: rgb(249, 252, 251); ">
+    <div class="p-2">
+<mat-card class="flex-col   mt-20 overflow-auto">
+    <h2 class="p-3 font-bold">Filter Products</h2>
+    <form [formGroup]="filterForm" class=" ">
+      
+      <mat-form-field class="  p-2 flex w-full">
+        <mat-label>Color</mat-label>
+        <mat-select formControlName="color">
+          <mat-option value="">All</mat-option>
+          <mat-option *ngFor="let color of colors" [value]="color">{{ color }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class=" p-2 w-full">
+        <mat-label>Fabric Type</mat-label>
+        <mat-select formControlName="fabric">
+          <mat-option value="">All</mat-option>
+          <mat-option *ngFor="let fabric of fabrics" [value]="fabric">{{ fabric }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class="p-2 w-full">
+        <mat-label>Price (₹)</mat-label>
+        <mat-select formControlName="fabric">
+            <mat-option value="">All</mat-option>
+            <mat-option *ngFor="let fabric of fabrics" [value]="fabric">{{ fabric }}</mat-option>
+          </mat-select>
+        <!-- <input matInput type="number" placeholder="Enter max price" formControlName="price"> -->
+      </mat-form-field>
+  
+      <div class="m-4 "><button mat-raised-button color="primary" (click)="applyFilters()" >Apply Filters</button>
+        <button mat-raised-button (click)="resetFilters()" color="accent" class="ml-10">Reset</button></div>
+      
+  
+    </form>
+  </mat-card>
+</div>
+
+  <div class=" ">
+    <div class="flex flex-wrap justify-evenly mt-20">
+        <ng-container *ngFor="let item of sarees ">
+            <app-product-card [product]="item"></app-product-card>
+        </ng-container>
+    </div>
+   
+</div>
 </div>

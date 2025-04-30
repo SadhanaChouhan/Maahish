@@ -22,11 +22,15 @@
                 <mat-form-field class="field w-full">
                     <mat-label >Email</mat-label>
                     <input matInput placeholder="email" formControlName="email" type="email" required email>
+                    <mat-icon (click)="verifyEmail()">schedulesend';</mat-icon>
                     <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is required</mat-error>
                     <mat-error *ngIf="loginForm.controls['email'].hasError('email')" >Please enter a valid email
                         Address</mat-error>
                 </mat-form-field>
-    
+                <mat-form-field class="field w-full">
+                    <mat-label>OTP</mat-label>
+                    <input matInput (input)="onOtpChange($event)" formControlName="otp" placeholder="OTP" type="text" required >
+                </mat-form-field>
                 <mat-form-field class="field w-full">
                     <mat-label>Password</mat-label>
                     <input matInput formControlName="password" placeholder="password" type="password" required password>

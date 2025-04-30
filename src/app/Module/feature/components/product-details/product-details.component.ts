@@ -4,6 +4,7 @@ import { sareesData } from 'src/Data/sarees';
 import { FeatureService } from '../../service/feature.service';
 import * as _ from 'lodash';
 import { womenKurtaData } from 'src/Data/womenKurta';
+import { ViewportScroller } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { SigninComponent } from 'src/app/Module/auth/signin/signin.component';
 import { ConfirmDialogComponent } from 'src/app/Module/admin/component/confirm-dialog/confirm-dialog.component';
@@ -17,11 +18,14 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   @Input()
   product: any
 
-  reviews = [1, 1, 1];
+  reviews = [1];
   reletedProducts: any;
 
 
+
+
   ngOnInit() {
+    this.viewportScroller.scrollToPosition([0, 0]);
     this.featureService.getProduct(localStorage.getItem("productId")).subscribe(res => {
       this.product = res;
     });
@@ -33,7 +37,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     this.getProductList();
   }
 
-  constructor(private router: Router, private featureService: FeatureService, private dialog: MatDialog,) { }
+  constructor(private router: Router, 
+    private featureService: FeatureService, 
+    private dialog: MatDialog,
+    private viewportScroller: ViewportScroller,
+  ) { }
+
   ngOnChanges(changes: SimpleChanges): void {
     this.featureService.getProduct(localStorage.getItem("productId")).subscribe(res => {
       this.product = res;

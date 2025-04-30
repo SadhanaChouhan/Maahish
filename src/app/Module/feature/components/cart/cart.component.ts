@@ -8,7 +8,7 @@ import { FeatureService } from '../../service/feature.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit{
-  cart: any = [1, 1, 1];
+  cart: any = [];
   cartItems: any = [];
   constructor(private router: Router, private featureService: FeatureService) { }
   ngOnInit(): void {

@@ -1,35 +1,17 @@
-<div class=" nav-container fixed top-0 z-50 right-0 left-0  px-10 lg:px-8">
+<!-- <div class=" nav-container fixed top-0 z-50 right-0 left-0  px-10 lg:px-8">
 
-    <div class=" nav-content flex h-16 items-center justify-between">
-
-        <div class="flex item-center">
-            <div class=" logo cursor-pointer " (click)="home()">
-                <img class="" src="./assets/MaahishLogo.jpg" alt="Maahish">
-            </div>
-            <div>
-                <div  class=" nav-links flex  ">
-                    <a routerLink="/" class=" nav-link  flex" (click)="about('about')">
-                        Maahish
-                        <span class="text">The Textile of Maheshwar</span>
-                        
-                    </a>
-                    <!-- <div>
-                        <button  mat-button class=" open-button btn">Women</button>
-                    </div>
-                    <div>
-                        <button  mat-button class=" open-button btn">Men</button>
-                    </div> -->
-                </div>
-            </div>
-        </div>
+    <div class=" nav-content  h-16 ">
+<div class="grid-cols-6">
     
-
-    <div class="flex ">
+    <div class="col-span-2">
+        <input type="search" placeholder="Search...">
+    </div>
+    <div class=" col-span-3">
        
         <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="nav-button" (click)="handleOpenLoginModal()">Login</button>
         <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="nav-button" (click)="handleOpenRegisterModal()">SignUp</button>
-        <div class=" relative ml-3 flex items-center">
-            <div class="flex items-center space-x-5">
+        <div class=" relative ml-3  items-center">
+            <div class=" items-center space-x-5">
                 <span class=" user-name font-bold text-lg text-black-400">{{this.sharedService.userDatials? this.sharedService.userDatials?.firstName: ""}}</span>
                 <button  mat-button [matMenuTriggerFor]="profileMenu">
                     <img src="https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain" alt="" class="user-avatar">
@@ -48,14 +30,150 @@
             </button>
         </div>
     </div>
+
+</div>
+       
+    
+
+   
 </div>
 </div>
+ 
+  -->
 
-<!-- <div *ngIf="isNavbarContentOpen" class="model-container">
-    <app-filter-products [selectedSection]= "currentSection"/>
-</div> -->
+<!-- 
+
+  <div class=" nav-container fixed top-0 z-50 right-0 left-0  px-10 lg:px-8">
+    <div class="lg:grid grid-cols-6 lg:gap-1 cover">
+        <div class="col-span-2 flex">
+            <div class=" logo cursor-pointer " (click)="home()">
+                <img class="" src="./assets/MaahishLogo.jpg" alt="Maahish">
+            </div>
+            <div>
+                <div  class=" nav-links  mt-5 ">
+                    <a routerLink="/" class=" nav-link  " (click)="about('about')">
+                        Maahish
+                        <span class="text">The Textile of Maheshwar</span>
+                        
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-span-2 mt-5 w-full">
+            <div class="w-full">
+                <input type="search" [formControl]="searchControl"  placeholder="search...">
+            </div>
+        </div>
+        <div class="col-span-2 mt-5">
+            <div  class="lg:grid grid-cols-3 lg:gap-1 cover" >
+                <div class="col-span-1 ">
+                    <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="nav-button flex" (click)="handleOpenLoginModal()">Login</button>
+        <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="nav-button flex" (click)="handleOpenRegisterModal()">SignUp</button>
+                </div>
+
+                <div class="col-span-1">
+                    <div class=" items-center space-x-5">
+                        <span class=" user-name font-bold text-lg text-black-400">{{this.sharedService.userDatials? this.sharedService.userDatials?.firstName: ""}}</span>
+                        <button  mat-button [matMenuTriggerFor]="profileMenu">
+                            <img src="https://th.bing.com/th/id/OIP.tvaMwK3QuFxhTYg4PSNNVAHaHa?rs=1&pid=ImgDetMain" alt="" class="user-avatar">
+                        </button>
+                        <mat-menu #profileMenu="matMenu">
+                            <button mat-menu-item>Profile</button>
+                            <button (click)="navigateTo('order')" mat-menu-item>Orders</button>
+                            <button mat-menu-item (click)="navigateTo('filter')">Filter</button>
+        
+                            <button mat-menu-item (click)="logOut()">Logout</button>
+        
+                        </mat-menu>
+                    </div> 
+                </div>
+                <div class="col-span-1">
+                    <button  (click)="navigateTo('cart')" mat-icon-button class="nav-icon-button">
+                        <mat-icon>shopping-cart-checkout</mat-icon>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div> -->
 
 
+<div class="header-toolbar  fixed top-0 z-50 right-0 left-0  lg:px-8">
+    <!-- Logo -->
+    <div class=" nav-content ">
+        <div class=" logo cursor-pointer">
+            <img class="" src="./assets/MaahishLogo.jpg" alt="Maahish">
+        </div>
+
+        <div>
+            <div class="font-bold text-2xl">Maahish
+            </div>
+            <p>The Textile of Maheshwar</p>
+        </div>
+    </div>
 
 
+    <!-- Navigation Links -->
+    <div class="ml-10"> <span class="nav-link" (click)="home()">HOME</span>
+        
+            <span class="nav-link" [matMenuTriggerFor]="womenMenu">WOMEN</span>
+        <mat-menu #womenMenu="matMenu">
+            <button mat-menu-item> Maheshwari Sarees</button>
+            <button  mat-menu-item> Maheshwari Suit-Materials</button>
 
+            <button mat-menu-item > Maheshwari Scarfs</button>
+
+        </mat-menu>
+        
+        
+        <span class="nav-link" (click)="about('about')">ABOUT</span>
+    </div>
+
+
+    <!-- Spacer -->
+    <span class="spacer"></span>
+
+    <!-- Search Bar -->
+    <mat-form-field appearance="fill" class="search-field">
+        <mat-label>Search</mat-label>
+        <input matInput [formControl]="searchControl" placeholder="Search for products, brands and more" />
+        <button mat-icon-button matSuffix>
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <div>
+        <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="font-bold flex"
+            (click)="handleOpenLoginModal()">Login</button>
+        <button *ngIf="!this.sharedService.userDatials.firstName" mat-button class="font-bold flex"
+            (click)="handleOpenRegisterModal()">SignUp</button>
+
+    </div>
+    <!-- Icons -->
+    <span class=" user-name font-bold text-lg text-black-400">{{this.sharedService.userDatials?
+        this.sharedService.userDatials?.firstName: ""}}</span>
+
+    <div class="icon-block" [matMenuTriggerFor]="profileMenu">
+        <mat-icon>person</mat-icon>
+        <span class="font-bold">Profile</span>
+        <mat-menu #profileMenu="matMenu">
+            <button mat-menu-item>Profile</button>
+            <button (click)="navigateTo('order')" mat-menu-item>Orders</button>
+            <!-- <button mat-menu-item (click)="navigateTo('filter')">Filter</button> -->
+
+            <button mat-menu-item (click)="logOut()">Logout</button>
+
+        </mat-menu>
+    </div>
+    <div class="icon-block" (click)="about('Wishlist')" >
+        <mat-icon color="accent">favorite_border</mat-icon>
+        <span class="font-bold">Wishlist</span>
+    </div>
+    <div class="icon-block" (click)="navigateTo('cart')">
+        <mat-icon 
+        >shopping_bag</mat-icon>
+        <span class="font-bold">Add to Cart</span>
+    </div>
+</div>

@@ -3,6 +3,8 @@
         <div class="   box py-5 ">
             <div class="p-4 py-7 cursor-pointer ">
                 <div *ngFor="let item of addressList; let last=last" class="py-2 space-y-2 bg mb-1">
+
+                    
                     <app-address-card [address]="item" />
                     <button style="padding: 1.4rem" mat-raised-button color="accent" (click)="handleCreateOrder(item)" class="ml-5">
                         Deliver here

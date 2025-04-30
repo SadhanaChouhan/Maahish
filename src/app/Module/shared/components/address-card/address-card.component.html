@@ -1,14 +1,25 @@
-<div class="space-y-3 items-center p-6  ">
 
-    
+
+
+<div class="space-y-3 items-center p-6 relative">
+    <button
+    mat-icon-button
+    [matMenuTriggerFor]="addressMenu"
+    class="more-options hover:bg-white rounded-full cursor-pointer">
+    <mat-icon>more_vert</mat-icon>
+</button>
+
+<mat-menu #addressMenu="matMenu">
+    <button mat-menu-item>Edit</button>
+    <button mat-menu-item (click)="deleteAddress()">Delete</button>
+</mat-menu>
+
     <p class="font-semibold">{{userDatials.firstName}}</p>
     <p>{{address.streetAddress}}</p>
     <p>{{address.nation}}</p>
     <p>{{address.state}}</p>
     <p>{{address.zipCode}}</p>
-    <div class="space-y-1 ">
+    <div class="space-y-1">
         <p class="font-semibold">Phone Number: <span>+91</span>{{address.mobile}}</p>
-    
     </div>
-    
 </div>

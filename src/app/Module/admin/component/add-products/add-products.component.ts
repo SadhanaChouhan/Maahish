@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./add-products.component.scss']
 })
 export class AddProductsComponent implements OnInit {
+  selectedFile: any;
   productName: string = '';
   productPrice: number = 2500;
   productCategory: string = 'sarees'; 
@@ -19,12 +20,12 @@ export class AddProductsComponent implements OnInit {
   color: string = '';
   length: string = '';
   discountedPrice: File | null = null;
-  productImageUrl: string | null = null;
+  productImageUrl: string | ArrayBuffer | null = null;
   product: any = [];
   isAdd: any = true;
   constructor(private adminService: AdminService,
       private snackBar: MatSnackBar,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
   ){
 
   }
@@ -50,12 +51,12 @@ export class AddProductsComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       this.discountedPrice = file;
-
+      this.selectedFile = file;
       // Generate Image Preview
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.productImageUrl = reader.result as string;
+        this.productImageUrl = reader.result;
       };
 
       console.log('Selected Image:', file.name);
@@ -66,6 +67,12 @@ export class AddProductsComponent implements OnInit {
     if (!this.productName || this.productPrice <= 0) {
       alert('Please fill in all required fields correctly.');
       return;
+    }
+    let imagePath = "./assets/";
+    if(this.productCategory === "suit-materials"){
+      imagePath += "womenKurta/"
+    }else{
+      imagePath += "sarees/"
     }
     const newProduct: any = {
       title: this.productName,
@@ -78,7 +85,7 @@ export class AddProductsComponent implements OnInit {
       color: this.color,
       length: this.length,
       discountedPrice: this.discountedPrice,
-      imageUrl: this.productImageUrl,
+      imageUrl: this.selectedFile? imagePath + this.selectedFile.name: this.product.imageUrl,
       discountPersent: this.discountedPrice,
       brand: "Maheshwari"
     };
@@ -113,4 +120,6 @@ export class AddProductsComponent implements OnInit {
       panelClass: ['custom-snackbar']
     });
   }
+
+
 }

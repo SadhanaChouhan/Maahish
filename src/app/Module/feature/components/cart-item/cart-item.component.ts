@@ -11,12 +11,17 @@ export class CartItemComponent {
 
   @Input() showButton:any;
   @Input() item: any;
+  quantity: number = 1;
+
   @Output() removeItem = new EventEmitter();
   constructor(private featureService: FeatureService,private router: Router){
 
   }
-  updateCartItem(num:number){
-    console.log(num);
+  updateCartItem(change:number){
+    this.quantity += change;
+    if(this.quantity<1){
+      this.quantity =1;
+    }
   }
 
   removeCartItem(){

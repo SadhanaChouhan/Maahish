@@ -3,12 +3,13 @@
 <div class="card-container">
     <div class="flex flex-wrap ">
     <div class="box hover:scale-105 transition-all duration-500 cursor-pointer items-center  overflow-hidden w-[15rem] ml-5  bg">
-    <div class="card overflow-hidden w-full" (click)="goToDetail()">
+    <div class="card overflow-hidden w-full" >
        
           <img
             [src]="product.imageUrl"
             [alt]="product.name"
             class=" object-cover "
+            (click)="goToDetail()"
             
           />
        

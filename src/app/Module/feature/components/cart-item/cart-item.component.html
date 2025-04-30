@@ -17,13 +17,13 @@
         <div class="flex items-center space-x-2">
             
             <div class="example-button-container">
-                <button mat-mini-fab color="accent" (click)="updateCartItem(-1)" [disabled]="true">
+                <button mat-mini-fab color="accent" (click)="updateCartItem(-1)" [disabled]="quantity <= 1">
                     <mat-icon>remove</mat-icon>
                 </button>
             </div>
-            <span class="py-1 px-7 border-gray-500 rounded-sm">1</span>
+            <span class="py-1 px-7 border-gray-500 rounded-sm">{{quantity}}</span>
             <div class="example-button-container">
-                <button mat-mini-fab color="accent" (click)="updateCartItem(1)" [disabled]="false">
+                <button mat-mini-fab color="accent" (click)="updateCartItem(1)">
                     <mat-icon>add</mat-icon>
                 </button>
             </div>

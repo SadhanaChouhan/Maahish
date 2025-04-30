@@ -34,6 +34,8 @@ import { VideoComponent } from './components/about/video/video.component';
 import { AboutCardComponent } from './components/about/about-card/about-card.component';
 import { AdminModule } from '../admin/admin.module';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    AdminModule
+    AdminModule,
+    MatCardModule,
+    MatSelectModule,
 
     // ProductCardComponent
     // Add your other imports here if needed

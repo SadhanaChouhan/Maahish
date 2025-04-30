@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,7 +13,7 @@ import { AdminLoginComponent } from '../../admin/component/admin-login/admin-log
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
 
 
   @Input() changeTamplate: any
@@ -26,13 +26,20 @@ export class SignupComponent {
     private router:Router,
     private dialog:MatDialog
   ) { }
+  ngOnInit(): void {
+    this.loginForm.get('otp')?.valueChanges.subscribe(value => {
+      console.log('OTP changed:', value);
+      // You can add validation or custom logic here
+    });
+  }
 
   loginForm: FormGroup = this.formBuilder.group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
-    isAdmin: false
+    isAdmin: false,
+    otp:0
   })
 
   submitForm() {
@@ -96,6 +103,19 @@ export class SignupComponent {
     });
     dialogRef.afterClosed.arguments((res:any)=>{
 
+    });
+  }
+
+  verifyEmail(){
+    this.authService.emailVerify(this.loginForm.value).subscribe(res=>{
+      console.log(res);
+    });
+  }
+  
+  onOtpChange(event: any){
+    if(this.loginForm.value.otp.length === 6)
+    this.authService.otpVerify(this.loginForm.value.email , this.loginForm.value.otp).subscribe(res=>{
+      console.log(res);
     });
   }
 }

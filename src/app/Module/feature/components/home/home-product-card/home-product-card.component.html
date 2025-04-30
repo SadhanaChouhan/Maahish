@@ -3,23 +3,33 @@
   <div class="flex flex-wrap justify-center">
     <div
       class="box hover:scale-105 transition-all duration-500 cursor-pointer items-center  overflow-hidden w-[15rem] mx-3">
-      <div class="card overflow-hidden w-full  " (click)="openProductDetils('product-details')">
+
+      
+      <div class="card overflow-hidden w-full  " >
 
         <a><img [src]="product.imageUrl" [alt]="product.name"
-            class="object-cover " />
+            class="object-cover " 
+            (click)="openProductDetils('product-details')"/>
+           
         </a>
+        
 
         <div class="p-2 ">
           <h3 class="text-lg font-bold text-black">{{product.name}}</h3>
-          <p class="text-sm text-gray-1200 ml-6"> <span class="font-bold ">Fabric Type:</span>  {{product.fabric}} </p> 
-          <p class="text-sm text-gray-1200 ml-6"> <span class="font-bold ">Color:</span>  {{product.color}} </p> 
+          <p class="text-sm text-gray-1200 ml-5"> <span class="font-bold ">Fabric Type:</span>  {{product.fabric}} </p> 
+          <p class="text-sm text-gray-1200 ml-5"> <span class="font-bold ">Color:</span>  {{product.color}} </p> 
 
              
           <p class=" text-l font-bold">₹{{product.discountedPrice}}
-            <span class="mt-1 text-l font-bold line-through  ml-6">₹{{product.price}}</span>
+            <span class=" text-l font-bold line-through  ml-5">₹{{product.price}}</span>
           </p>
+          <button mat-icon-button (click)="addToWishlist(product.id)">
+            <mat-icon >
+              {{ isWishlisted(product.id) ? 'favorite' : 'favorite_border' }}
+            </mat-icon>
+           
+          </button>
           <!-- <p class="mt-1 text-l font-bold line-through ">₹{{product.price}}</p> -->
-
         </div>
 
       </div>

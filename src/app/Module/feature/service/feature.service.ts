@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BASE_API_URL } from 'src/app/config/api';
@@ -44,5 +44,28 @@ export class FeatureService {
   }
   getSelectedProduct() {
     return this.selectedProduct;
+  }
+
+    addToWishlist(userId: number, productId: number) {
+    return this.http.post(`${this.apiUrl}/api/wishlist/add?userId=${userId}&productId=${productId}`, {});
+  }
+
+  getWishlist(userId: number) {
+    return this.http.get(`${this.apiUrl}/api/wishlist/${userId}`);
+  }
+
+  removeFromWishlist(userId: number, productId: number) {
+    const params = new HttpParams()
+      .set('userId', userId.toString())
+      .set('productId', productId.toString());
+    return this.http.delete(`${this.apiUrl}/api/wishlist/remove`, {params});
+  }
+
+  initiatePayment(json: any){
+    return this.http.post(`${this.apiUrl}/api/payment/create-order`, json);
+  }
+
+  verifyPaymentSignature(json: any){
+    return this.http.post(`${this.apiUrl}/api/payment/verify-signature`, json);
   }
 }

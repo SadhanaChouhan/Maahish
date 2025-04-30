@@ -1,0 +1,27 @@
+.upload-card {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .upload-box {
+    padding: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .filename {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .image-preview {
+    width: 50px;
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    height: auto;
+  }

@@ -5,6 +5,9 @@ import { AuthComponent } from 'src/app/Module/auth/auth.component';
 import { SigninComponent } from 'src/app/Module/auth/signin/signin.component';
 import { SignupComponent } from 'src/app/Module/auth/signup/signup.component';
 import { SharedService } from '../../shared.service';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +16,7 @@ import { SharedService } from '../../shared.service';
 })
 export class NavbarComponent implements OnInit, OnChanges{
 
-
+  searchControl = new FormControl();
   constructor(private router:Router, private dialog:MatDialog,
     public sharedService: SharedService
   ){}
@@ -23,6 +26,7 @@ export class NavbarComponent implements OnInit, OnChanges{
       let user: any = localStorage.getItem("userDatials");
       this.sharedService.userDatials = JSON.parse(user);
     }
+    this.searchProduct();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -124,5 +128,31 @@ export class NavbarComponent implements OnInit, OnChanges{
 // //   }
 
 //   }
+
+  searchProduct(){
+    this.searchControl.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(keyword => this.sharedService.searchProducts(keyword))
+      )
+      .subscribe(data => {
+        this.sortProduct(data);
+        console.log("search product"+ data);
+      });
+  }
+
+  sortProduct(res: any){
+      this.sharedService.sareeList = _.filter(
+        res,(obj:any)=>
+        obj.category === "sarees"
+      );
+      this.sharedService.womenKurtaList = _.filter(res,(obj:any)=>
+        obj.category === "suit-materials"
+      );
+      this.sharedService.scarfList = _.filter(res,(obj:any)=>
+        obj.category === "scarfs"
+      );
+    }
 
 }

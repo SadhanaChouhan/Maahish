@@ -27,20 +27,6 @@ export class AddressCardComponent implements OnInit {
   }
 
   deleteAddress(){
-      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        width: '300px',
-        data: { message: 'Are you sure you want to delete this Address?' }
-      });
-    
-      // dialogRef.afterClosed().subscribe(result => {
-      //   if (result) {
-      //     this.adminService.deleteProduct(id).subscribe(res=>{
-      //       window.location.reload();
-      //     });
-      //   } else {
-         
-      //   }
-      // });
-      
+      console.log("delete address");
     }
 }

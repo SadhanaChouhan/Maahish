@@ -10,6 +10,7 @@ import { FeatureService } from 'src/app/Module/feature/service/feature.service';
 export class ProductCardComponent {
 
   @Input() product:any
+  wishlist: number[] = [];
 
 constructor(private router: Router,private featureService:FeatureService){}
 
@@ -18,6 +19,14 @@ constructor(private router: Router,private featureService:FeatureService){}
     localStorage.setItem("productId",this.product.id);
     this.router.navigate(["../product-details"]);
     window.location.reload();
+  }
+
+  addToWishlist(productId: number) {
+    const userId = 1; // Get from auth or storage
+    this.featureService.addToWishlist(userId, productId).subscribe({
+      next: res => alert("Added to wishlist!"),
+      error: err => alert(err.error.message || "Already in wishlist")
+    });
   }
   
 }

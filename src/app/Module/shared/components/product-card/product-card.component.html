@@ -13,25 +13,30 @@
             
           />
        
-        <div class=" textPart p-2  text-black">
-          <h3 class="text-lg font-semibold">{{product.name}}</h3>
-          <p class=" ">{{product.fabric}}</p>
-          <p class="mt-1 text-l font-bold">{{product.color}}</p>
-          <p class="mt-1 text-l font-bold">₹{{product.price}}</p>
+        <div class=" textPart p-1  text-black">
+          <p class="text-l ">{{product.name}}</p>
+          <!-- <p class="text-s font-semibold">{{product.title}}</p> -->
+
+          <p class=" "><span>Fabric Type:  </span>{{product.fabric}}</p>
+          <p class=" "><span>Color:  </span>{{product.color}}</p>
+          <p class="  font-bold ">
+            <span> ₹{{product.discountedPrice}} </span>
+            <span class="text-green-700 line-through">₹{{product.price}} </span>
+            
+            <span class="pl-3">{{product.discountPersent}}% </span>
+          </p>
+          <button mat-icon-button (click)="addToWishlist(product.id)" class="">
+            <mat-icon  >
+              {{ 'favorite_border' }}
+            </mat-icon>
+           
+          </button>
 
 
 
           <!-- <p class="test-sm">{{product.description}}</p> -->
         </div>
-        <!-- <div class="p-4 pt-0">
-          <button
-            class="w-full rounded-md bg-primary px-4 py-2 text-white"
-            (click)="addToCart()"
-            [disabled]="!product.inStock"
-          >
-            {{product.inStock ? 'Add to Cart' : 'Out of Stock'}}
-          </button>
-        </div> -->
+       
       </div>
     </div>
     </div>

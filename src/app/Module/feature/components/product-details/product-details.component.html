@@ -4,31 +4,29 @@
             <img [src]="product.imageUrl" alt="img" class=" object-cover  h-45 zoom-image">
         </div>
 
-        <div class="col-span-2 space-y-10 mt-10 lg:mt-0  bg p-10">
+        <div class="col-span-2 space-y-10 mt-5 lg:mt-0  bg p-6">
             <div class="space-y-2">
+                <p class="font-bold  text-xl "><span>{{product.brand}}</span> <span class="ml-2">{{product.category}}</span></p>
                 <p class="font-bold  text-xl">{{product.name}}</p>
-                <p class="text-lg"><span class="font-bold">Fabric Type:</span> {{product.fabric}} </p>
-                <p class="text-lg"><span class="font-bold">Color:</span> {{product.color}} </p>
+                <p class="text-lg  text-black">{{product.title}}</p>
+                <p class="text-lg"><span class="font-bold">Fabric Type: </span> {{product.fabric}} </p>
+                <p class="text-lg"><span class="font-bold">Color: </span> {{product.color}} </p>
 
-                <p class="text-lg"><span class="font-bold">Lenght</span> {{product.length}} Meter </p>
-
-
+                <p class="text-lg"><span class="font-bold">Lenght: </span> {{product.length}}</p>
+                <div class="flex item-center space-x-5">
+                    <p class="text-lg font-bold">₹{{product.discountedPrice}}</p>
+                    <p class="text-lg font-bold">{{product.discountPersent}}%</p>  
+                </div>
             </div>
-
-            <div class="flex item-center space-x-5">
-                <p class="text-lg font-bold">₹{{product.discountedPrice}}</p>
-                <p class="text-lg font-bold text-green-400 line-through">₹{{product.price}}</p>
-            </div>
+            <span>M.R.P <span class="line-through text-green-700 font-bold"> ₹{{product.price}}</span></span>
             <div>
-                <p class="text-lg"> <span class="font-bold">Discription:</span> {{product.description}}</p>
-                <p>A Maheshwari Saree with a floral pattern</p>
+                <p class="text-lg"> <span class="font-bold">Discription: </span> {{product.description}}</p>
+                <p class="font-bold text-gray-600 text-l">Cleaning Process: Dry Clean Only</p>
             </div>
             <div>
                 <button  class=" btn" (click)="handleAddToCart()"
                     mat-raised-button>Add To Cart</button>
             </div>
-
-
         </div>
     </section>
 

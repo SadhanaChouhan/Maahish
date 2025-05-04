@@ -12,14 +12,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AddProductsComponent implements OnInit {
   selectedFile: any;
   productName: string = '';
+  productTitle: string = '';
   productPrice: number = 2500;
   productCategory: string = 'sarees'; 
   productDescription: string = '';
-  fabricType: string = '';
+  fabricType: string = 'Silk By Cotton';
   productQuantity: number = 1;
   color: string = '';
-  length: string = '';
-  discountedPrice: File | null = null;
+  length: string = '6.3 Meter';
+  discountPersent :number = 10;
+  discountedPrice:number=2500;
   productImageUrl: string | ArrayBuffer | null = null;
   product: any = [];
   isAdd: any = true;
@@ -35,6 +37,7 @@ export class AddProductsComponent implements OnInit {
     if(!this.isAdd){
       this.product = this.adminService.getEditProduct();
       this.productName = this.product.name;
+      this.productTitle= this.product.title;
       this.productPrice = this.product.price;
       this.productCategory = this.product.category;
       this.productDescription = this.product.description;
@@ -43,6 +46,8 @@ export class AddProductsComponent implements OnInit {
       this.color = this.product.color;
       this.length = this.product.length;
       this.discountedPrice = this.product.discountedPrice;
+      // this.discountedPrice= this.productPrice * 0.9;
+      this.discountPersent = this.product.discountPersent;
       this.productImageUrl = this.product.imageUrl;
     }
   }
@@ -50,7 +55,7 @@ export class AddProductsComponent implements OnInit {
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
-      this.discountedPrice = file;
+      // this.discountedPrice = file;
       this.selectedFile = file;
       // Generate Image Preview
       const reader = new FileReader();
@@ -75,7 +80,7 @@ export class AddProductsComponent implements OnInit {
       imagePath += "sarees/"
     }
     const newProduct: any = {
-      title: this.productName,
+      title: this.productTitle,
       name: this.productName,
       price: this.productPrice,
       category: this.productCategory,
@@ -85,8 +90,9 @@ export class AddProductsComponent implements OnInit {
       color: this.color,
       length: this.length,
       discountedPrice: this.discountedPrice,
+      discountPersent:this.discountPersent,
       imageUrl: this.selectedFile? imagePath + this.selectedFile.name: this.product.imageUrl,
-      discountPersent: this.discountedPrice,
+     
       brand: "Maheshwari"
     };
     if(!this.isAdd)
@@ -102,15 +108,17 @@ export class AddProductsComponent implements OnInit {
 
     // Reset Form
     this.productName = '';
+    this.productTitle='';
     this.productPrice = 0;
     this.productCategory = 'sarees';
     this.productDescription = '';
-    this.fabricType = '';
+    this.fabricType = 'Silk By Cotton';
     this.productQuantity = 1;
     this.color = '';
-    this.length = '';
-    this.discountedPrice = null;
+    this.length = '6.3 Meter';
+    this.discountedPrice =0;
     this.productImageUrl = null;
+    this.discountPersent=10;
   }
 
   getToastMsg(msg:any){
@@ -121,5 +129,13 @@ export class AddProductsComponent implements OnInit {
     });
   }
 
+  calculateDiscountedPrice() {
+    if (this.productPrice && this.discountPersent >= 0) {
+      this.discountedPrice = this.productPrice - (this.productPrice * this.discountPersent / 100);
+    } else {
+      this.discountedPrice = 0;
+    }
+  }
+  
 
 }

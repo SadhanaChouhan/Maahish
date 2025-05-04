@@ -14,21 +14,22 @@
         </a>
         
 
-        <div class="p-2 ">
-          <h3 class="text-lg font-bold text-black">{{product.name}}</h3>
-          <p class="text-sm text-gray-1200 ml-5"> <span class="font-bold ">Fabric Type:</span>  {{product.fabric}} </p> 
-          <p class="text-sm text-gray-1200 ml-5"> <span class="font-bold ">Color:</span>  {{product.color}} </p> 
-
-             
-          <p class=" text-l font-bold">₹{{product.discountedPrice}}
-            <span class=" text-l font-bold line-through  ml-5">₹{{product.price}}</span>
+        <div class="p-1 ">
+          <p class="text-l font-bold ">{{product.brand}} <span>{{product.category}}</span></p>
+          <p class=" text-black">{{product.title}}</p>
+          <p class="text-sm text-gray-1200 "> <span class="font-bold ">Fabric Type:</span>  {{product.fabric}} </p> 
+          <p class="text-sm text-gray-1200"> <span class="font-bold ">Color:</span>  {{product.color}} </p>   
+          <p class=" text-l font-bold ">₹{{product.discountedPrice}}
+            <span class=" text-l font-bold line-through ml-5 ">₹{{product.price}}</span>
+            <span class="ml-5">{{product.discountPersent}}%</span>
           </p>
-          <button mat-icon-button (click)="addToWishlist(product.id)">
-            <mat-icon >
+          <button mat-icon-button (click)="addToWishlist(product.id)" class="">
+            <mat-icon  >
               {{ isWishlisted(product.id) ? 'favorite' : 'favorite_border' }}
             </mat-icon>
            
           </button>
+         
           <!-- <p class="mt-1 text-l font-bold line-through ">₹{{product.price}}</p> -->
         </div>
 

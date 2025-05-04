@@ -104,7 +104,8 @@
     <!-- Logo -->
     <div class=" nav-content ">
         <div class=" logo cursor-pointer">
-            <img class="" src="./assets/MaahishLogo.jpg" alt="Maahish">
+            <img class="" src="./assets/MaahishLogo.jpg" alt="Maahish"
+            (click)="about('admin')">
         </div>
 
         <div>
@@ -174,6 +175,6 @@
     <div class="icon-block" (click)="navigateTo('cart')">
         <mat-icon 
         >shopping_bag</mat-icon>
-        <span class="font-bold">Add to Cart</span>
+        <span class="font-bold">Cart</span>
     </div>
 </div>

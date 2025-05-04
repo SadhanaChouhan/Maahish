@@ -5,11 +5,12 @@
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 ">
                 <div class="col-span-1  ">
                     <mat-form-field appearance="fill" class="w-full ">
-                        <mat-label>Product Title</mat-label>
-                        <input matInput [(ngModel)]="productName" name="productName" placeholder="Title"
+                        <mat-label>Product Name</mat-label>
+                        <input matInput [(ngModel)]="productName" name="productName" placeholder="Name"
                             type="text" required>
                     </mat-form-field>
                 </div>
+               
                 <div class="col-span-1 " *ngIf="!this.isAdd">
                     <div  class="image-preview"  >
                         <img [src]="productImageUrl" alt="Image Preview" (click)="fileInput.click()" />
@@ -19,7 +20,7 @@
                     <p *ngIf="selectedFile">Selected file: {{ selectedFile.name }}</p>
 
                 </div>
-                
+
                 <div class="col-span-1 " *ngIf="this.isAdd">
                     <!-- <mat-form-field appearance="fill" class="w-full  ">
                         <mat-label>Image URL</mat-label>
@@ -39,6 +40,15 @@
                     </div>
                     <p *ngIf="selectedFile">Selected file: {{ selectedFile.name }}</p>
                 </div>
+                <div class="col-span-1  ">
+                    <mat-form-field appearance="fill" class="w-full ">
+                        <mat-label>Product Title</mat-label>
+                        <input matInput [(ngModel)]="productTitle" name="productTitle" placeholder="Title"
+                            type="text" required>
+                    </mat-form-field>
+                </div>
+                
+               
 
                 <div class="col-span-1 ">
                     <mat-form-field appearance="fill" class="w-full  ">
@@ -58,8 +68,8 @@
 
                 <div class="col-span-1 ">
                     <mat-form-field appearance="fill" class="w-full  ">
-                        <mat-label>Price</mat-label>
-                        <input matInput [(ngModel)]="productPrice" name="productPrice" placeholder="Price"
+                        <mat-label> Product Price</mat-label>
+                        <input matInput [(ngModel)]="productPrice" (ngModelChange)="calculateDiscountedPrice()" name="productPrice" placeholder="Price"
                             type="number" required>
                     </mat-form-field>
                 </div>
@@ -67,7 +77,14 @@
                 <div class="col-span-1 ">
                     <mat-form-field appearance="fill" class="w-full  ">
                         <mat-label>Discounted Price</mat-label>
-                        <input matInput [(ngModel)]=" discountedPrice" name=" discountedPrice" placeholder="Discounted Price"
+                        <input matInput [value]="discountedPrice" name=" discountedPrice" placeholder="Discounted Price"
+                            type="number" readonly>
+                    </mat-form-field>
+                </div>
+                <div class="col-span-1 ">
+                    <mat-form-field appearance="fill" class="w-full  ">
+                        <mat-label>Discounted Persent</mat-label>
+                        <input matInput [(ngModel)]="discountPersent" (ngModelChange)="calculateDiscountedPrice()" name=" discountedPercent" placeholder="Discounted Persent"
                             type="number" required>
                     </mat-form-field>
                 </div>

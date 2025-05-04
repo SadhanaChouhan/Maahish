@@ -6,10 +6,14 @@
         <div class="ml-5 space-y-1">
             <p class="font-semibold">{{item.product.title}}</p>
             <p>Color: {{item.product.color}}</p>
-            <p class="mt-2">Fabric: {{item.product.fabric}}</p>
-            <div class="flex space-x-2 items-center pt-3">
-                <p class="text-black-500">{{item.product.discountedPrice}}</p>
-                <p class="text-green-500 line-through">{{item.product.price}}</p>
+            <p class="mt-1">Fabric: {{item.product.fabric}}</p>
+            <p class="mt-1">Quantity: {{quantity}}</p>
+
+            <div class="flex space-x-2 items-center pt-1">
+                <p class="text-black-500 font-bold">{{item.product.discountedPrice * quantity}}</p>
+                <p class="text-green-500 line-through font-bold">{{item.product.price}}</p>
+                <p class="font-bold">{{item.product.discountPersent}}%</p>
+
             </div>
         </div>
     </div>

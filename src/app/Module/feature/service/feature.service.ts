@@ -86,4 +86,12 @@ export class FeatureService {
   getDeliveryEstimate(): Observable<string> {
     return this.http.get(`${this.apiUrl}/api/delivery/estimate`, { responseType: 'text' });
   }
+
+  placeOrder(userId:any, addressId: any,cart: any){
+    return this.http.post(`${this.apiUrl}/api/orders/createOrders/`+ userId +'/'+addressId, cart);
+  }
+
+  getOrderList(userId: number) {
+    return this.http.get(`${this.apiUrl}/api/orders/getOrders/${userId}`);
+  }
 }

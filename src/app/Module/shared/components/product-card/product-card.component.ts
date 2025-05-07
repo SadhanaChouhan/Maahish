@@ -25,7 +25,7 @@ ngOnInit(): void {
     this.featureService.setSelectedProduct(this.product);
     localStorage.setItem("productId",this.product.id);
     this.router.navigate(["../product-details"]);
-    window.location.reload();
+    // window.location.reload();
   }
 
   addToWishlist(productId: number) {

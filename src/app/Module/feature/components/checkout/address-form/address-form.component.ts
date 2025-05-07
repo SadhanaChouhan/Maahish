@@ -19,8 +19,6 @@ export class AddressFormComponent implements OnInit{
     state: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
     zipCode: ['', [Validators.required, Validators.pattern('^[0-9]{6}$')]],
     mobile: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
-    mobile2: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
-    email: ['', [Validators.required, Validators.email]]
   })
   userDatials: any;
   constructor(private formBuilder: FormBuilder

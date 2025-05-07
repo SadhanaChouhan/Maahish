@@ -13,6 +13,7 @@ export class PaymentComponent implements OnInit {
   selectedAddress: any;
   cart: any;
   cartItems: any;
+  orderItem:any = [];
 
   constructor(private router: Router,private featureService: FeatureService,
     private http: HttpClient
@@ -25,8 +26,22 @@ export class PaymentComponent implements OnInit {
   }
 
   navigetToPaymentSuccess(path: any) {
-    // this.router.navigate([path])
-    this.payNow();
+    this.createOrders(path);
+    
+  }
+
+  createOrders(path:any) {
+    let user: any = localStorage.getItem("userDatials");
+    let userDatials = JSON.parse(user);
+    // let productIds: any = [];
+    // this.cartItems.forEach((element: any) => {
+    //   productIds.push(element.product.id);
+    // });
+    this.featureService.placeOrder(userDatials.id,this.selectedAddress.id,this.cart).subscribe(res=>{
+      console.log(res);
+      this.orderItem = res;
+      this.router.navigate([path]);
+    });
   }
 
   payNow() {

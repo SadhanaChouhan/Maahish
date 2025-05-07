@@ -4,14 +4,14 @@ export const  sareesData=[
         price: 3000,
         fabric: 'Sillk',
         description: 'A Maheshwari Saree with a floral pattern.',
-        imageUrl: './assets/Sarees/black.png'
+        imageUrl: './assets/sarees/black.png'
     },
     {
         name: 'Maheshwari Saree ',
         price: 3500,
         fabric: 'Sillk',
         description: 'A Maheshwari Saree with a floral pattern.',
-        imageUrl: './assets/Sarees/orange.png'
+        imageUrl: './assets/sarees/orange.png'
     },
     
     {
@@ -19,7 +19,7 @@ export const  sareesData=[
         price: 3000,
         fabric: 'Sillk',
         description: 'A Maheshwari Saree with a floral pattern.',
-        imageUrl: './assets/Sarees/green2.png'
+        imageUrl: './assets/sarees/green2.png'
     },
     {
         name: 'Maheshwari Saree ',
@@ -33,7 +33,7 @@ export const  sareesData=[
         price: 3000,
         fabric: 'Sillk',
         description: 'A Maheshwari Saree with a floral pattern.',
-        imageUrl: './assets/Sarees/pink.png'
+        imageUrl: './assets/sarees/pink.png'
     }
     ,
     {

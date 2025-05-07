@@ -1,4 +1,4 @@
-<div class="contain">
+<!-- <div class="contain">
     <div class="container">
         <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
             <div style="display: flex;" class="flex h-16 justify-between">
@@ -55,4 +55,79 @@
             </div>
         </form>
     </div>
-    </div>
+    </div> -->
+
+    <div class="contain">
+        <div class="container">
+          <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+            <div class="flex h-16 justify-between items-center">
+              <h1 class="font-bold">Create an Account</h1>
+              <mat-icon class="cursor-pointer" (click)="cancelDialog()">cancel</mat-icon>
+            </div>
+      
+            <!-- First Name -->
+            <mat-form-field class="field w-full">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="First Name" formControlName="firstName" required />
+              <mat-error *ngIf="loginForm.controls['firstName'].hasError('required')">First Name is required</mat-error>
+            </mat-form-field>
+      
+            <!-- Last Name -->
+            <mat-form-field class="field w-full">
+              <mat-label>Last Name</mat-label>
+              <input matInput placeholder="Last Name" formControlName="lastName" required />
+              <mat-error *ngIf="loginForm.controls['lastName'].hasError('required')">Last Name is required</mat-error>
+            </mat-form-field>
+      
+            <!-- Email -->
+            <mat-form-field class="field w-full">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email" type="email" required />
+              <button mat-icon-button matSuffix (click)="verifyEmail()" type="button">
+                <mat-icon>send</mat-icon>
+              </button>
+              <mat-error *ngIf="loginForm.controls['email'].hasError('required')">Email is required</mat-error>
+              <mat-error *ngIf="loginForm.controls['email'].hasError('email')">Please enter a valid email address</mat-error>
+            </mat-form-field>
+      
+            <!-- OTP -->
+            <mat-form-field class="field w-full">
+              <mat-label>OTP</mat-label>
+              <input matInput (input)="onOtpChange($event)" formControlName="otp" placeholder="OTP" required />
+              <button mat-icon-button matSuffix  type="button">
+                <mat-icon>schedulesend</mat-icon>
+              </button>
+            </mat-form-field>
+      
+            <!-- Password -->
+            <mat-form-field class="field w-full">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" placeholder="Password" type="password" required />
+              <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Password is required</mat-error>
+              <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">
+                Password should be at least 8 characters long
+              </mat-error>
+            </mat-form-field>
+      
+            <!-- Submit Button -->
+            <div class="bt">
+              <button
+                type="submit"
+                mat-raised-button
+                class="w-full py-3 mt-6"
+                color="primary"
+              >
+                SIGNUP
+              </button>
+            </div>
+      
+            <!-- Links -->
+            <div class="mt-4 text-center">
+              <span>Already have an account?</span>
+              <button class="reg" mat-button color="accent" (click)="openLoginForm()">LOGIN</button><br />
+              <button class="reg" mat-button (click)="changeAdminLogin()">LOGIN AS ADMIN</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      

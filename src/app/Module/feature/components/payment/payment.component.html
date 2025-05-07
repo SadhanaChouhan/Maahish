@@ -1,6 +1,6 @@
 <div class="mt-24 space-y-5 px-5 lg:px-20 ">
     <ng-container class="">
-        <div class="p-5   box my-5 bg">
+        <div class="p-2   box my-5 bg">
             <app-address-card [address]="selectedAddress" showButton="false"/>
         </div>
 
@@ -16,26 +16,38 @@
             <section class=" col-span-1 px-5 sticky top-0  mt-5 lg:mt-0 bg">
                 <ng-container>
                     <div class="box p-5 ">
-                        <p class="font-bold text-gray-500 pb-4 ">Price details</p>
-                        <!-- <mat-diviver/> -->
-                        <div class="space-y-3 m-9">
-                            <div class="flex justify-between pt-3">
-                                <span>Total price</span>
-                                <span class="line-through">₹{{cart.totalPrice}}</span>
+
+                        <div class=" p-2 ">
+                            <p class="font-bold  pb-1 text-2xl">Price details </p>
+                                <p class="font-bold text-blue-500">Total Items: <span>{{cart.totalItem}}</span ></p>
+                            <mat-divider/>
+                            <div class="space-y-3 font-bold">
+                                <div class="flex justify-between pt-3">
+                                    <span>Total price</span>
+                                    <span class="line-through text-green-700">₹{{cart.totalPrice}}</span>
+                                </div>
+                                <div class="flex justify-between pt-3">
+                                    <span>Discount:</span>
+                                    <span class="text-black-400">10%</span>
+                                </div>
+                                <div class="flex justify-between pt-3">
+                                    <span> After Discount Price</span>
+                                    <span class="text-black-400">₹{{cart.totalDiscountedPrice}}</span>
+                                </div>
+                                <div class="flex justify-between pt-3">
+                                    <span>Delivery Charges</span>
+                                    <span class="text-black-400">₹99</span>
+                                </div>
+                                <div class="flex justify-between pt-3 font-bold text-blue-600">
+                                    <span>Total amount</span>
+                                    <span class="">₹{{cart.finalPrice}}</span>
+                                </div>
                             </div>
-                            <div class="flex justify-between pt-3">
-                                <span>Discount</span>
-                                <span class="text-green-600">₹{{cart.totalDiscountedPrice}}</span>
-                            </div>
-                            <div class="flex justify-between pt-3">
-                                <span>Delivery Charges</span>
-                                <span class="text-green-600">₹99</span>
-                            </div>
-                            <div class="flex justify-between pt-3">
-                                <span>Total amount</span>
-                                <span class="text-green-600 font-bold" >₹{{cart.finalPrice}}</span>
-                            </div>
+                            
                         </div>
+                        
+                           
+                            
                         <button 
                              
                             style="padding: 1rem;"

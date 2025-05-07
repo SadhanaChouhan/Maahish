@@ -12,6 +12,8 @@ export class AddressCardComponent implements OnInit {
 
   @Input() address: any
   userDatials: any;
+  featureService: any;
+  
 
 
    constructor(
@@ -27,6 +29,8 @@ export class AddressCardComponent implements OnInit {
   }
 
   deleteAddress(){
-      console.log("delete address");
+    
+    
+    
     }
 }

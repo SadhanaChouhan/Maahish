@@ -4,7 +4,11 @@
             <div class="box p-5 space-y-3 lg:mt-10 ">
                 <ng-container *ngIf="cart">
                     <div class="bg" *ngFor="let item of cartItems; let last=last">
-                        <app-cart-item  showButton="true" [item]="item" (removeItem)="itemRemoved($event)"/>
+                        <app-cart-item  
+                            showButton="true" 
+                            [item]="item" 
+                            (removeItem)="itemRemoved($event)"
+                            (updateCart)="updateCart($event)"/>
                         <!-- <mat-divider/> -->
                     </div>
                 </ng-container>
@@ -18,13 +22,18 @@
         </section>
         <section class="col-span-1   bg  mr-5 ">
             <ng-container *ngIf="cartItems.length>0">
-                <div class=" p-5 ">
-                    <p class="font-bold  pb-4">Price details</p>
+                <div class=" p-2 ">
+                    <p class="font-bold  pb-1 text-2xl">Price details </p>
+                        <p class="font-bold text-blue-500">Total Items: <span>{{cart.totalItem}}</span ></p>
                     <mat-divider/>
                     <div class="space-y-3 font-bold">
                         <div class="flex justify-between pt-3">
                             <span>Total price</span>
-                            <span class="line-through text-green-600">₹{{cart.totalPrice}}</span>
+                            <span class="line-through text-green-700">₹{{cart.totalPrice}}</span>
+                        </div>
+                        <div class="flex justify-between pt-3">
+                            <span>Discount:</span>
+                            <span class="text-black-400">10%</span>
                         </div>
                         <div class="flex justify-between pt-3">
                             <span> After Discount Price</span>
@@ -34,13 +43,13 @@
                             <span>Delivery Charges</span>
                             <span class="text-black-400">₹99</span>
                         </div>
-                        <div class="flex justify-between pt-3">
+                        <div class="flex justify-between pt-3 font-bold text-blue-600">
                             <span>Total amount</span>
-                            <span class="text-black-400">₹{{cart.finalPrice}}</span>
+                            <span class="">₹{{cart.finalPrice}}</span>
                         </div>
                     </div>
                     <button (click)="navigateToCheckout()" 
-                        class="text-lg mt-8 p-28 px-10 w-full " color="black" mat-raised-button>
+                        class="text-lg mt-8 p-28 px-10 w-full " color="accent" mat-raised-button>
                         Checkout</button>
                 </div>
             </ng-container>

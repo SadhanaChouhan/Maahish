@@ -19,6 +19,7 @@ export class AddressFormComponent implements OnInit{
     state: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
     zipCode: ['', [Validators.required, Validators.pattern('^[0-9]{6}$')]],
     mobile: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
+    mobile2: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
     email: ['', [Validators.required, Validators.email]]
   })
   userDatials: any;
@@ -48,7 +49,9 @@ export class AddressFormComponent implements OnInit{
       state: this.myForm.value.state,
       zipCode: this.myForm.value.zipCode,
       user: {id:this.userDatials.id},
-      mobile: this.myForm.value.mobile
+      mobile: this.myForm.value.mobile,
+      mobile2: this.myForm.value.mobile2,
+      email: this.myForm.value.email
     }
     this.featureService.addAddress(address).subscribe(res=>{
       console.log(res);

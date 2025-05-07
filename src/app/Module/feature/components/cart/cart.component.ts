@@ -30,6 +30,10 @@ export class CartComponent implements OnInit{
     });
   }
 
+  updateCart(event:any){
+    this.findUserCartItems();
+  }
+
   itemRemoved(event:any){
     this.findUserCartItems();
   }

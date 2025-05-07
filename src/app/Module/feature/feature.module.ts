@@ -36,6 +36,8 @@ import { AdminModule } from '../admin/admin.module';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { RefundComponent } from './components/about/refund/refund.component';
+import { ConnectUsComponent } from './components/about/connect-us/connect-us.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { MatSelectModule } from '@angular/material/select';
     AboutComponent,
     VideoComponent,
     AboutCardComponent,
-    CartItemComponent
+    CartItemComponent,
+    RefundComponent,
+    ConnectUsComponent
   ],
   imports: [
     CommonModule,

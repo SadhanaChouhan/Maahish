@@ -1,12 +1,12 @@
-<div class="grid grid-cols-1 gap-4 lg:grid-cols-12 px-5 lg:px-20 ">
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-12 px-1 lg:px-20 ">
     <div class="col-span-1 lg:col-span-5">
-        <div class="   box py-5 ">
-            <div class="p-4 py-7 cursor-pointer ">
-                <div *ngFor="let item of addressList; let last=last" class="py-2 space-y-2 bg mb-1">
+        <div class="   py-2 ">
+            <div class="p-1  cursor-pointer ">
+                <div *ngFor="let item of addressList; let last=last" class="p-2 space-y-2 bg mb-6">
 
                     
                     <app-address-card [address]="item" />
-                    <button style="padding: 1.4rem" mat-raised-button color="accent" (click)="handleCreateOrder(item)" class="ml-5">
+                    <button style="padding: 1.0rem" mat-raised-button color="accent" (click)="handleCreateOrder(item)" class="ml-5">
                         Deliver here
                     </button>
                    
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-     <div class="col-span-1 lg:col-span-7 add-cart"> 
+     <div class="col-span-1 lg:col-span-7 add-cart bg"> 
 
         <div class=" p-5 box">
             <form [formGroup]="myForm" (ngSubmit)="handleSubmit()">
@@ -34,7 +34,7 @@
                             <input matInput formControlName="state" placeholder="state" autocomplete="given-name"
                                 type="text" required>
                                 <mat-error *ngIf="myForm.get('state')?.invalid && myForm.get('state')?.touched">
-                                    Enter a valid district name (letters only).
+                                    Enter a valid State name (letters only).
                                   </mat-error>
                         </mat-form-field>
                     </div>
@@ -56,7 +56,7 @@
                             <input matInput formControlName="city" placeholder="city" autocomplete="given-name"
                                 type="text" required>
                                 <mat-error *ngIf="myForm.get('city')?.invalid && myForm.get('city')?.touched">
-                                    Enter a valid district name (letters only).
+                                    Enter a valid City name (letters only).
                                   </mat-error>
                         </mat-form-field>
                     </div>
@@ -86,7 +86,7 @@
                     <div class="col-span-1 ">
                         <mat-form-field appearance="fill" class="w-full">
                             <mat-label>Phone number</mat-label>
-                            <input matInput formControlName="mobile" placeholder="+91 2233445555"
+                            <input matInput formControlName="mobile" placeholder="+91 XXXXXXXXXX"
                                  type="number" required>
                                  <mat-error *ngIf="myForm.get('mobile')?.invalid && myForm.get('mobile')?.touched">
                                     Enter a valid Indian mobile number.
@@ -94,14 +94,14 @@
                         </mat-form-field>
                     </div>
 
-                    <div class="col-span-1 ">
+                    <!-- <div class="col-span-1 ">
                         <mat-form-field appearance="fill" class="w-full">
-                            <mat-label>Phone number</mat-label>
-                            <input matInput formControlName="mobile" placeholder="+91 2233445555" 
+                            <mat-label> Secondary Phone number</mat-label>
+                            <input matInput formControlName="mobile2" placeholder="+91 XXXXXXXXXX" 
                                 type="number" required>
                         </mat-form-field>
-                    </div>
-                    <div class="col-span-1 ">
+                    </div> -->
+                    <!-- <div class="col-span-1 ">
                         <mat-form-field appearance="fill" class="w-full">
                             <mat-label>Email</mat-label>
                             <input matInput formControlName="email" placeholder="email" autocomplete="given-name"
@@ -110,13 +110,14 @@
                                     Enter a valid email address.
                                   </mat-error>
                         </mat-form-field>
-                    </div>
+                    </div> -->
 
                 </div>
 
 
                 <div class="col-span-2 mt-10 ">
                     <button class="w-full"   type="submit"
+                    color="accent"
                         mat-raised-button  (click)="navigetToPayement('payment')" [disabled]="!myForm.valid">Deliver Here</button>
                 </div>
             </form>

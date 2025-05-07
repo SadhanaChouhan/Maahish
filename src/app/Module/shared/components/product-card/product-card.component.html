@@ -2,7 +2,7 @@
 
 <div class="card-container">
     <div class="flex flex-wrap ">
-    <div class="box hover:scale-105 transition-all duration-500 cursor-pointer items-center  overflow-hidden w-[15rem] ml-5  bg">
+    <div class="box hover:scale-105 transition-all duration-500 cursor-pointer   overflow-hidden w-[15rem]  mx-1  bg">
     <div class="card overflow-hidden w-full" >
        
           <img
@@ -21,10 +21,11 @@
           <p class=" "><span>Color:  </span>{{product.color}}</p>
           <p class="  font-bold ">
             <span> ₹{{product.discountedPrice}} </span>
-            <span class="text-green-700 line-through">₹{{product.price}} </span>
+            <span class="text-green-600 line-through p-2">₹{{product.price}} </span>
             
-            <span class="pl-3">{{product.discountPersent}}% </span>
+            <span class="pl-3 text-green-600">{{product.discountPersent}}% off</span>
           </p>
+          <p>{{ deliveryEstimate }}</p>
           <button mat-icon-button (click)="addToWishlist(product.id)" class="">
             <mat-icon  >
               {{ 'favorite_border' }}

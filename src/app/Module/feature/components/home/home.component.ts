@@ -19,7 +19,7 @@ export class HomeComponent {
   scarfs:any
   womenKurta:any
   menKurta:any
-
+  address: any = [];
   constructor(private featureService: FeatureService,
     public sharedService: SharedService
   ){
@@ -31,6 +31,7 @@ export class HomeComponent {
     this.sharedService.womenKurtaList=womenKurtaData.slice(0,10);
     // this.menKurta=mensKurtaData.slice(0,5);
     this.getProductList();
+    this.getAddress();
   }
 
   getProductList(){
@@ -40,6 +41,16 @@ export class HomeComponent {
         this.sortProduct(res);
       }
     });
+
+  }
+
+  getAddress(){
+    let user: any = localStorage.getItem("userDatials");
+    let userDatials = JSON.parse(user);
+    this.featureService.getAddress(userDatials.id).subscribe(res=>{
+      this.address = res;
+    });
+    
   }
 
 

@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FeatureService } from '../../service/feature.service';
 import { Router } from '@angular/router';
+import { ConfirmDialogComponent } from 'src/app/Module/admin/component/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart-item',
@@ -14,15 +16,52 @@ export class CartItemComponent {
   quantity: number = 1;
 
   @Output() removeItem = new EventEmitter();
-  constructor(private featureService: FeatureService,private router: Router){
+  @Output() updateCart =  new EventEmitter();
+
+  constructor(private featureService: FeatureService,private router: Router,
+     private dialog: MatDialog,
+  ){
 
   }
   updateCartItem(change:number){
-    this.quantity += change;
-    if(this.quantity<1){
-      this.quantity =1;
+    this.item.quantity += change;
+    if(this.item.quantity<1){
+      this.item.quantity = 1;
+    }
+    this.addToCart(this.item)
+  }
+
+  addToCart(item: any) {
+    let user: any = localStorage.getItem("userDatials");
+    let userDatials = JSON.parse(user);
+    if (userDatials == null) {
+      this.openConfirmationDialog();
+    } else {
+      let json = {
+        quantity: item.quantity,
+        productId: this.item.product.id,
+      }
+      this.featureService.updateCartItemQuantity(userDatials.id, json).subscribe((response: any) => {
+        if(response != null){
+          this.item.discountedPrice = response.discountedPrice;
+          this.item.price = response.price;
+          this.updateCart.emit(response);
+        }
+      });
     }
   }
+
+    openConfirmationDialog() {
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        width: '300px',
+        data: { message: 'For continue shopping please login!' }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          // this.openSignInDialog();
+        }
+      });
+    }
 
   removeCartItem(){
     let user: any = localStorage.getItem("userDatials");

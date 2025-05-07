@@ -3,27 +3,38 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 cover p-7">
 
 
-            <div class="col-span-1">About
-                <p>about</p>
-                <p>about</p>
+            <div class="col-span-1">Maheshwari Handloom Sarees
+                <h5 class="font-bold">Maheshwari handloom is more than just fabric—it’s a legacy woven into every thread.
+                     Whether you seek heritage, elegance, or authenticity,
+                     Maheshwari textiles bring culture and craftsmanship to life.
+                    <br>Maheshwar, Khargone
+                    Madhya Pradesh, <br>
+                    Pincode - 451224, India.</h5>
+                     <h4>From the ❤️ of Maheshwar.</h4>
             </div>
-            <div class="col-span-1"> Social Links
-                <p>Email: chouhansadhana17@gmail.com</p>
-                <p>Instagram: maahishTTM</p>
-                <p>Facbook</p>
-                <p>Website</p>
-                <p>Contact Number: 7470857783</p>
-                <p>Chat with Us</p>
+            <div class="col-span-1"> CONNECT WITH US
+                <p><mat-icon class="">mail</mat-icon><span> maahish.ttm10@gmail.com</span></p>
+                
+                <a href="https://www.instagram.com/maahish_thetextileofmaheshwar?igsh=MXAyb3o1emxwbHg4dQ== ">
+                    <p><mat-icon>instagram</mat-icon> maahish_thetextileofmaheshwar</p>
+                </a>
+                <p (click)="navigateTo('connect')">Connect with us</p>
             </div>
-            <div class="col-span-1"> Admin</div>
-            <div class="col-span-1"> Custom Orders</div>
-            <!-- <div class="px-4">
-                <h1 class="px-5 text-lg font-semibold ">Company</h1>
-                <p class="mb-2">About</p>
-                <p class="mb-2">Contect</p>
-                <p class="mb-2">Links</p>
-                <p class="mb-2">About</p>
-            </div> -->
+            <div class="col-span-1"> USEFUL LINKS
+                <p (click)="navigateTo('about')">About us</p>
+                <p (click)="navigateTo('refund')">Shipping & Return Policy</p>
+                <p (click)="navigateTo('photos')">Photo Gallery</p>
+                <p (click)="navigateTo('video')">Making Process</p>
+            </div>
+            <div class="col-span-1 ">MY ACCOUNT
+                <p (click)="navigateTo('cart')">View Cart</p>
+                <p (click)="navigateTo('Wishlist')">My Wishlist</p>
+                <p (click)="navigateTo('order')">Track My Order</p>
+                <p (click)="logOut()">Log Out</p>
+            </div>
+           
         </div>
     </div>
+    <mat-divider class=" bg-white"></mat-divider>
+    <div class="p-6 text-gray-400">Copyright ©2025 Maahish The Textile of Maheshwar. All Rights Reserved</div>
 </div>

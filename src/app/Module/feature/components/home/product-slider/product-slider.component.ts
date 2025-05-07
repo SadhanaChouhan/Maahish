@@ -8,4 +8,5 @@ import { Component ,Input} from '@angular/core';
 export class ProductSliderComponent {
 @Input() title:any
 @Input() products:any
+@Input() address: any = [];
 }

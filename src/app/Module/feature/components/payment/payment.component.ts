@@ -35,7 +35,7 @@ export class PaymentComponent implements OnInit {
           key: 'rzp_test_TvhIAolPPJPHgG', // Razorpay Key ID
           amount: order.amount,
           currency: order.currency,
-          name: 'My E-Commerce Site',
+          name: 'Maahish',
           description: 'Maheshwari Saree Purchase',
           order_id: order.id, // This comes from backend
           handler: function (response: any) {
@@ -74,7 +74,7 @@ export class PaymentComponent implements OnInit {
     let userDatials = JSON.parse(user);
     this.featureService.findUserCart(userDatials.id).subscribe((res:any)=>{
       this.cart = res;
-      this.cart.finalPrice =this. cart.totalDiscountedPrice + 0;
+      this.cart.finalPrice =this. cart.totalDiscountedPrice + 99;
       this.cartItems = res.cartItems;
     });
   }

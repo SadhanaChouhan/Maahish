@@ -1,7 +1,7 @@
 <div class="p-5 lg:p-10 mt-20">
     <section class="lg:grid grid-cols-3 lg:gap-8 cover ">
         <div class="col-span-1 flex  flex-col bg  zoom-container">
-            <img [src]="product.imageUrl" alt="img" class=" object-cover  h-45 zoom-image">
+            <img [src]="product.imageUrl" alt="img" class="   h-55 zoom-image">
         </div>
 
         <div class="col-span-2 space-y-10 mt-5 lg:mt-0  bg p-6">
@@ -15,7 +15,7 @@
                 <p class="text-lg"><span class="font-bold">Lenght: </span> {{product.length}}</p>
                 <div class="flex item-center space-x-5">
                     <p class="text-lg font-bold">₹{{product.discountedPrice}}</p>
-                    <p class="text-lg font-bold">{{product.discountPersent}}%</p>  
+                    <p class="text-lg font-bold text-green-500">{{product.discountPersent}}% Off</p>  
                 </div>
             </div>
             <span>M.R.P <span class="line-through text-green-700 font-bold"> ₹{{product.price}}</span></span>
@@ -27,10 +27,11 @@
                 <button  class=" btn" (click)="handleAddToCart()"
                     mat-raised-button>Add To Cart</button>
             </div>
+            <div><app-star-rating/></div>
         </div>
     </section>
 
-    <section class="pt-20 pb-5 px-5 lg:px-20">
+    <!-- <section class="pt-20 pb-5 px-5 lg:px-20">
         <h1 class="font-semibold text-lg pb-4">Recent Review & Ratings</h1>
         <div class="border border-[#1a1a1a] roundd-md p-5 bg">
             <div class="lg:grid grid-cols-12 gap-7">
@@ -146,7 +147,7 @@
             </div>
         </div>
 
-    </section>
+    </section> -->
 
     <section class="mt-10 ">
         <h1 class="py-2  text-gray-500">Related Products</h1>

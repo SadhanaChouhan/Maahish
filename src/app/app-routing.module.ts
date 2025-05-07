@@ -15,6 +15,11 @@ import { SignupComponent } from './Module/auth/signup/signup.component';
 import { SigninComponent } from './Module/auth/signin/signin.component';
 import { AboutComponent } from './Module/feature/components/about/about.component';
 import { WishlistItemComponent } from './Module/shared/components/wishlist-item/wishlist-item.component';
+import { AboutCardComponent } from './Module/feature/components/about/about-card/about-card.component';
+import { VideoComponent } from './Module/feature/components/about/video/video.component';
+import { RefundComponent } from './Module/feature/components/about/refund/refund.component';
+import { ConnectUsComponent } from './Module/feature/components/about/connect-us/connect-us.component';
+import { UserProfileComponent } from './Module/shared/components/user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:"admin",loadChildren:()=>import("./Module/admin/admin-routing.module").then(m=>AdminRoutingModule)},
@@ -31,6 +36,17 @@ const routes: Routes = [
   {path:"sign-in",component:SigninComponent},
   {path:"about",component:AboutComponent},
   {path:"Wishlist",component:WishlistItemComponent},
+  {path:"photos",component:AboutCardComponent},
+  {path:"video",component:VideoComponent},
+  {path:"refund",component:RefundComponent},
+  {path:"connect",component:ConnectUsComponent},
+  {path:"profile",component:UserProfileComponent},
+  
+
+
+
+
+
  
 ];
 

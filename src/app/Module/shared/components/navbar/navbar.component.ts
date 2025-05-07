@@ -15,6 +15,8 @@ import * as _ from 'lodash';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit, OnChanges{
+  cart: any = [];
+  cartItems: any = [];
 
   searchControl = new FormControl();
   constructor(private router:Router, private dialog:MatDialog,

@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { BASE_API_URL } from 'src/app/config/api';
 
 @Injectable({
@@ -8,6 +9,9 @@ import { BASE_API_URL } from 'src/app/config/api';
 })
 export class FeatureService {
   private apiUrl = BASE_API_URL;
+  private wishlistUpdated = new BehaviorSubject<boolean>(false);
+  wishlistUpdated$ = this.wishlistUpdated.asObservable();
+
   constructor(private http: HttpClient, private store: Store) { }
 
   getProductList() {
@@ -22,6 +26,10 @@ export class FeatureService {
     return this.http.post(`${this.apiUrl}/api/cart/add/`+ userId, product);
   }
 
+  updateCartItemQuantity(userId:any, product: any){
+    return this.http.post(`${this.apiUrl}/api/cart/updateCartItemQuantity/`+ userId, product);
+  }
+  
   findUserCart(userId: any){
     return this.http.get(`${this.apiUrl}/api/cart/getCartItem/`+ userId); 
   }
@@ -46,7 +54,7 @@ export class FeatureService {
     return this.selectedProduct;
   }
 
-    addToWishlist(userId: number, productId: number) {
+    addToWishlist(userId:any, productId: number) {
     return this.http.post(`${this.apiUrl}/api/wishlist/add?userId=${userId}&productId=${productId}`, {});
   }
 
@@ -55,10 +63,12 @@ export class FeatureService {
   }
 
   removeFromWishlist(userId: number, productId: number) {
-    const params = new HttpParams()
-      .set('userId', userId.toString())
-      .set('productId', productId.toString());
-    return this.http.delete(`${this.apiUrl}/api/wishlist/remove`, {params});
+  
+    return this.http.delete(`${this.apiUrl}/api/wishlist/remove?userId=${userId}&productId=${productId}`);
+  }
+
+  notifyWishlistChange() {
+    this.wishlistUpdated.next(true);
   }
 
   initiatePayment(json: any){
@@ -67,5 +77,13 @@ export class FeatureService {
 
   verifyPaymentSignature(json: any){
     return this.http.post(`${this.apiUrl}/api/payment/verify-signature`, json);
+  }
+
+  removeAddress(userId:any, address:any){
+    return this.http.get(`${this.apiUrl}/api/address/removeAddress/`+ userId+'/'+address); 
+  }
+
+  getDeliveryEstimate(): Observable<string> {
+    return this.http.get(`${this.apiUrl}/api/delivery/estimate`, { responseType: 'text' });
   }
 }

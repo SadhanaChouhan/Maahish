@@ -1,36 +1,32 @@
-
 <div class="card-container">
   <div class="flex flex-wrap justify-center">
     <div
-      class="box hover:scale-105 transition-all duration-500 cursor-pointer items-center  overflow-hidden w-[15rem] mx-3">
+      class="box hover:scale-105 transition-all duration-500 cursor-pointer items-center  overflow-hidden w-[15rem] mx-1">
 
-      
-      <div class="card overflow-hidden w-full  " >
 
-        <a><img [src]="product.imageUrl" [alt]="product.name"
-            class="object-cover " 
-            (click)="openProductDetils('product-details')"/>
-           
+      <div class="card overflow-hidden w-full  ">
+
+        <a><img [src]="product.imageUrl" [alt]="product.name" class="object-cover "
+            (click)="openProductDetils('product-details')" />
+
         </a>
-        
+
 
         <div class="p-1 ">
-          <p class="text-l font-bold ">{{product.brand}} <span>{{product.category}}</span></p>
-          <p class=" text-black">{{product.title}}</p>
-          <p class="text-sm text-gray-1200 "> <span class="font-bold ">Fabric Type:</span>  {{product.fabric}} </p> 
-          <p class="text-sm text-gray-1200"> <span class="font-bold ">Color:</span>  {{product.color}} </p>   
+          <p class=" text-black ">{{product.title}}</p>
+          <p class="text-sm text-gray-1200 "> <span class="font-bold ">Fabric Type:</span> {{product.fabric}} </p>
+          <p class="text-sm text-gray-1200"> <span class="font-bold ">Color:</span> {{product.color}} </p>
           <p class=" text-l font-bold ">₹{{product.discountedPrice}}
-            <span class=" text-l font-bold line-through ml-5 ">₹{{product.price}}</span>
-            <span class="ml-5">{{product.discountPersent}}%</span>
+            <span class=" text-l font-bold line-through ml-5 text-green-500">₹{{product.price}}</span>
+            <span class="ml-5 text-green-600">{{product.discountPersent}}% Off</span>
           </p>
+          <p *ngIf="address.length">{{ deliveryEstimate }}</p>
           <button mat-icon-button (click)="addToWishlist(product.id)" class="">
-            <mat-icon  >
+            <mat-icon>
               {{ isWishlisted(product.id) ? 'favorite' : 'favorite_border' }}
             </mat-icon>
-           
+
           </button>
-         
-          <!-- <p class="mt-1 text-l font-bold line-through ">₹{{product.price}}</p> -->
         </div>
 
       </div>

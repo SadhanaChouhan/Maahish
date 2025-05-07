@@ -1,7 +1,7 @@
 
 
 
-<div class="space-y-3 items-center p-6 relative">
+<div class="space-y-3 items-center p-2 relative">
     <button
     mat-icon-button
     [matMenuTriggerFor]="addressMenu"
@@ -14,12 +14,10 @@
     <button mat-menu-item (click)="deleteAddress()">Delete</button>
 </mat-menu>
 
-    <p class="font-semibold">{{userDatials.firstName}}</p>
-    <p>{{address.streetAddress}}</p>
-    <p>{{address.nation}}</p>
-    <p>{{address.state}}</p>
-    <p>{{address.zipCode}}</p>
-    <div class="space-y-1">
-        <p class="font-semibold">Phone Number: <span>+91</span>{{address.mobile}}</p>
-    </div>
+    <p class="font-bold text-xl"> {{userDatials.firstName}} <span>{{userDatials.lastName}}</span></p>
+    <p class="font-semibold">Delivering to : <span>+91</span>{{address.mobile}}, <span>{{userDatials.email}}</span></p>
+    <p class="font-bold text-l">Address Details:</p>
+    <p class="font-bold text-gray-600"><span>{{address.streetAddress}}, <span>{{address.city}}, </span></span>{{address.dist}}, <span>{{address.state}}, </span>{{address.zipCode}}, <span>{{address.nation}}</span></p>
+   
+   
 </div>

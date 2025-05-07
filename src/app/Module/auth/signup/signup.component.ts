@@ -110,6 +110,7 @@ export class SignupComponent implements OnInit {
     this.authService.emailVerify(this.loginForm.value).subscribe(res=>{
       console.log(res);
     });
+    alert("OTP sent Successfully.");
   }
   
   onOtpChange(event: any){

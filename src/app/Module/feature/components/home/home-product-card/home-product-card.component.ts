@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FeatureService } from '../../../service/feature.service';
 
@@ -7,14 +7,23 @@ import { FeatureService } from '../../../service/feature.service';
   templateUrl: './home-product-card.component.html',
   styleUrls: ['./home-product-card.component.scss']
 })
-export class HomeProductCardComponent {
+export class HomeProductCardComponent implements OnInit{
 
   @Input() product: any;
+  @Input() address: any;
+  @Input() item: any;
   wishlist: number[] = [];
+  deliveryEstimate: string = '';
+  userId:any
 
   constructor(private router:Router,private featureService: FeatureService){}
 
 
+  ngOnInit(): void {
+      this.featureService.getDeliveryEstimate().subscribe(data =>{
+        this.deliveryEstimate = data;
+      });
+  }
   isWishlisted(productId: number): boolean {
     return this.wishlist.includes(productId);
   }
@@ -26,11 +35,33 @@ export class HomeProductCardComponent {
     );
   }
 
+  // addToWishlist(productId: number) {
+  //   const userId = 1; // Get from auth or storage
+  //   this.featureService.addToWishlist(userId, productId).subscribe({
+  //     next: res => alert("Added to wishlist!"),
+  //     error: err => alert(err.error.message || "Already in wishlist")
+  //   });
+  // }
+
   addToWishlist(productId: number) {
-    const userId = 1; // Get from auth or storage
+    
+    const user = localStorage.getItem("userDatials");
+  
+  if (user) {
+    const userDetails = JSON.parse(user);
+    const userId = userDetails.id;
+
     this.featureService.addToWishlist(userId, productId).subscribe({
-      next: res => alert("Added to wishlist!"),
-      error: err => alert(err.error.message || "Already in wishlist")
+      next: () => {
+        this.wishlist.push(productId); // optional UI update
+      },
+      error: (err) => {
+        console.error('Failed to add to wishlist:', err);
+      }
     });
+  } else {
+    console.error("User not logged in.");
   }
+
+   }
 }

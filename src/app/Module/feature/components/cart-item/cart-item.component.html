@@ -7,11 +7,11 @@
             <p class="font-semibold">{{item.product.title}}</p>
             <p>Color: {{item.product.color}}</p>
             <p class="mt-1">Fabric: {{item.product.fabric}}</p>
-            <p class="mt-1">Quantity: {{quantity}}</p>
+            <p class="mt-1">Quantity: {{item.quantity}}</p>
 
             <div class="flex space-x-2 items-center pt-1">
-                <p class="text-black-500 font-bold">{{item.product.discountedPrice * quantity}}</p>
-                <p class="text-green-500 line-through font-bold">{{item.product.price}}</p>
+                <p class="text-black-500 font-bold">{{item.product.discountedPrice * item.quantity}}</p>
+                <p class="text-green-700 line-through font-bold">{{item.product.price * item.quantity}}</p>
                 <p class="font-bold">{{item.product.discountPersent}}%</p>
 
             </div>
@@ -21,11 +21,11 @@
         <div class="flex items-center space-x-2">
             
             <div class="example-button-container">
-                <button mat-mini-fab color="accent" (click)="updateCartItem(-1)" [disabled]="quantity <= 1">
+                <button mat-mini-fab color="accent" (click)="updateCartItem(-1)" [disabled]="item.quantity === 1">
                     <mat-icon>remove</mat-icon>
                 </button>
             </div>
-            <span class="py-1 px-7 border-gray-500 rounded-sm">{{quantity}}</span>
+            <span class="py-1 px-7 border-gray-500 rounded-sm">{{item.quantity}}</span>
             <div class="example-button-container">
                 <button mat-mini-fab color="accent" (click)="updateCartItem(1)">
                     <mat-icon>add</mat-icon>

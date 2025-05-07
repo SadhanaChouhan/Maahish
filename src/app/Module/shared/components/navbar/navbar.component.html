@@ -59,9 +59,9 @@
 
     <div class="icon-block" [matMenuTriggerFor]="profileMenu">
         <mat-icon>person</mat-icon>
-        <span class="font-bold" (click)="navigateTo('profile')">Profile</span>
+        <span class="font-bold" >Profile</span>
         <mat-menu #profileMenu="matMenu">
-            <button mat-menu-item>Profile</button>
+            <button mat-menu-item (click)="navigateTo('profile')">Profile</button>
             <button (click)="navigateTo('order')" mat-menu-item>Orders</button>
             <!-- <button mat-menu-item (click)="navigateTo('filter')">Filter</button> -->
 

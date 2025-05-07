@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-order-details',
   templateUrl: './order-details.component.html',
   styleUrls: ['./order-details.component.scss']
 })
-export class OrderDetailsComponent {
-orders=[1,1,1]
+export class OrderDetailsComponent implements OnInit {
+
+orders=[1,1,1];
+selectedAddress: any;
+
+ngOnInit(): void {
+  let address: any = localStorage.getItem("address");
+    this.selectedAddress = JSON.parse(address);
+}
 
 steps=[
   {id:0,title:"PLACED",isCompleted:true},

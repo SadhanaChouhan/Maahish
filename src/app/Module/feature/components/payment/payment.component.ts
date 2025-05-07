@@ -13,9 +13,11 @@ export class PaymentComponent implements OnInit {
   selectedAddress: any;
   cart: any;
   cartItems: any;
+
   constructor(private router: Router,private featureService: FeatureService,
     private http: HttpClient
   ) { }
+  
   ngOnInit(): void {
     let address: any = localStorage.getItem("address");
     this.selectedAddress = JSON.parse(address);

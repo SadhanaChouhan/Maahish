@@ -5,9 +5,9 @@
     </div>
 
     <div class="space-y-10 pt-10 ">
-        <div class="box px-10 bg-white">
-            <h1 class="text-lg font-semibold py-5 items-center">Shipping Address</h1>
-            <app-address-card/>
+        <div class=" px-5 bg-indigo-100">
+            <h1 class="text-lg font-semibold text-center p-2">Shipping Address</h1>
+            <app-address-card [address]="selectedAddress"/>
         </div>
         <div class="space-y-6 mt-20 bg-white">
             <div *ngFor="let orderItem of orders" >
